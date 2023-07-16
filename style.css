@@ -1,0 +1,481 @@
+@charset "utf-8";
+
+body{}
+
+/* index */
+
+.top{
+
+	background-color:#000000;
+
+	padding-top: 10px;
+
+	font-family: 'Montserrat', sans-serif;
+
+}
+
+.top li a {
+
+	color: #FFE223;
+
+	font-size: 1.2em;
+
+}
+
+.top li{
+
+	border-right: 1px solid #FFFFFF;
+
+}
+
+.top li:last-child{
+
+	border-right: none;
+
+}
+
+.btn-danger:hover{
+
+	color: #F0CB23;
+
+}
+
+.social li{ border:none}
+
+.navbar{
+
+	border: none;
+
+	font-size: 1.3em;
+
+	border-radius: 0px;
+
+	margin-bottom: 0px;
+
+	font-family: 'Montserrat', sans-serif;
+
+	background-color:#289CE5;
+
+	padding-top: 10px;
+
+	padding-bottom: 10px;
+	width:100%;
+
+}
+
+.nav{ margin-top:10px}
+
+.navbar-default .navbar-brand{
+
+	/* [disabled]color:#FFFFFF; */
+
+	padding-top: 70px;
+
+	background-image: url(../img/logo.png);
+
+	padding-right: 150px;
+
+	background-position: center;
+
+	background-size:cover;
+
+	background-repeat: no-repeat;
+
+	padding-bottom: 25px;
+
+}
+
+.navbar-nav.navbar-nav li a{
+
+	padding: 15px 20px;
+
+	color: #000000;
+
+	border-right: 1px dotted #959595;
+
+}
+
+.navbar-nav.navbar-nav li a .fa{
+
+	/* [disabled]color: #FFE213; */
+
+}
+
+
+
+.navbar-nav.navbar-nav li:last-child a{
+
+	border-right: none;
+
+}
+
+
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>li>a:hover{
+
+	background-color: transparent;
+
+	color:#D9171B;
+
+ }
+
+
+
+.slider{
+
+	max-width: 1600px;
+
+
+
+}
+
+.carousel-inner>.item>a>img,.carousel-inner>.item>img{
+
+	width: 100%;
+
+	height: 550px;
+
+	display: block;}
+
+.testimonial-block{ 
+
+color:#000000;
+
+background-color:#FFEB36;
+
+heigh:40px;
+
+padding-bottom:20px;
+
+padding-top:20px;
+
+padding-left:20px;
+
+}
+
+.text-white{ color:#FFFFFF}
+
+.text-purple{
+
+	color: #330066
+
+}
+
+aside h2{font-family: 'Montserrat', sans-serif;	color: #330066
+
+}
+
+.text-black{
+
+	color:#000000;
+
+}
+
+
+
+.text-gold{
+
+	color:#FFE223;
+	background-color:#000000;
+
+	/*text-shadow: 1px 1px 0px #D7D7D7;*/
+
+	font-family: 'Nunito', sans-serif;
+
+	font-weight:bold;
+
+}
+
+h1, .text-fancy{
+
+	font-family: 'Tangerine', serif;
+
+	font-size: 48px;
+
+	background-color: #000000;
+
+	padding: 5px;
+
+	color: #FCD019;
+
+}
+
+.side-panel-heading{
+
+	font-family: 'Prociono';
+
+        font-size: 48px;
+
+color:#000000;
+
+background-color:#FFE223;
+
+heigh:40px;
+
+padding-bottom:10px;
+
+padding-top:10px;
+
+}
+
+.btn-default:focus, .btn-default:hover{
+
+	color:#000000;
+
+	background-color:FFEB36;
+
+	border: none
+
+}
+
+.btn-default.active,.btn-default:active,.open>.dropdown-toggle.btn-default{color:#fff;background-color:#D1372D;border:none}
+
+.btn-default {
+
+	color: #FFE223;
+
+	background-color:#000000;
+
+	border: none;
+
+}
+
+.btn-default.active.focus,.btn-default.active:focus,.btn-default.active:hover,.btn-default:active.focus,.btn-default:active:focus,.btn-default:active:hover,.open>.dropdown-toggle.btn-default.focus,.open>.dropdown-toggle.btn-default:focus,.open>.dropdown-toggle.btn-default:hover{
+
+	color: #FFFFFF;
+
+	background-color: #FFC700;
+
+	border: none
+
+}
+
+.btn-default:hover {
+
+    color: #fff;
+
+    background-color: #FFC700;
+
+    border-color: none;
+
+}
+
+aside p{
+
+font-family: 'Montserrat', sans-serif;	font-size: 15px;
+
+}
+
+aside h1{
+
+	font-family: 'Montserrat', cursive;
+
+	word-spacing: 10px;
+
+}
+
+
+
+/*product*/
+
+.welcome-box .sidebar{
+
+	background-color:#FDE43A;
+
+	margin-top: 50px;
+
+	margin-bottom: 20px;
+
+	padding-right: 0px;
+
+}
+
+.welcome-box .sidebar hr{
+
+	 margin-bottom:10px;
+
+	 margin-top:10px;
+
+}
+
+.welcome-box .sidebar ul li a{
+
+	color: #000000;
+
+	font-size: 16px;
+
+	font-weight:bold;
+
+	font-family: 'Montserrat', cursive;
+
+}
+
+.welcome-box .sidebar ul li a:hover{
+
+	color:#1FE5AB;
+
+	text-decoration: none;
+
+}
+
+.welcome-box .sidebar ul li {
+
+	padding-top: 10px;
+
+	padding-bottom: 10px;
+
+	border-bottom: 1px dashed #ADADAD;
+
+	color: #000000;
+
+}
+
+.welcome-box .sidebar ul li:hover {
+
+	background-color:#7E8C3D;
+
+}
+
+.welcome-box .sidebar ul li:last-child{
+
+	border-bottom: none;
+
+}
+
+a:focus, a:hover{ text-decoration:none;}
+
+#background
+
+{
+
+	background-repeat: no-repeat;
+
+	background-position: center center;
+
+	background-size: cover;
+
+	/* [disabled]background-image: -webkit-linear-gradient(159deg,rgba(255,226,38,1.00) 0%,rgba(255,154,67,1.00) 48.70%,rgba(255,226,38,1.00) 100%); */
+
+	/* [disabled]background-image: -moz-linear-gradient(159deg,rgba(255,226,38,1.00) 0%,rgba(255,154,67,1.00) 48.70%,rgba(255,226,38,1.00) 100%); */
+
+	/* [disabled]background-image: -o-linear-gradient(159deg,rgba(255,226,38,1.00) 0%,rgba(255,154,67,1.00) 48.70%,rgba(255,226,38,1.00) 100%); */
+
+	/* [disabled]background-image: linear-gradient(291deg,rgba(255,226,38,1.00) 0%,rgba(255,154,67,1.00) 48.70%,rgba(255,226,38,1.00) 100%); */
+
+}
+
+#white-background
+
+{
+
+	background-color:#FFFFFF;
+
+	}
+
+	
+
+	/* footer styling is here*/
+
+footer{
+
+	background-image: url(../img/indian%20vector.png), -webkit-linear-gradient(159deg,rgba(255,226,38,1.00) 0%,rgba(255,154,67,1.00) 48.70%,rgba(255,226,38,1.00) 100%);
+
+	background-image: url(../img/indian%20vector.png), -moz-linear-gradient(159deg,rgba(255,226,38,1.00) 0%,rgba(255,154,67,1.00) 48.70%,rgba(255,226,38,1.00) 100%);
+
+	background-image: url(../img/indian%20vector.png), -o-linear-gradient(159deg,rgba(255,226,38,1.00) 0%,rgba(255,154,67,1.00) 48.70%,rgba(255,226,38,1.00) 100%);
+
+	background-image: url(../img/indian%20vector.png), linear-gradient(291deg,rgba(255,226,38,1.00) 0%,rgba(255,154,67,1.00) 48.70%,rgba(255,226,38,1.00) 100%);
+
+	background-repeat: no-repeat;
+
+	background-size: cover;
+
+	background-position: center bottom;
+
+	font-size: 16px;
+
+	font-family: 'Montserrat', sans-serif;
+
+	color: #FFFFFF
+
+}
+
+footer a{ color:#000000}
+
+footer a:hover{ color:#D9171B}
+
+.copy{
+
+	padding-top: 15px;
+
+	padding-bottom: 15px;
+
+	background-color: #111111;
+
+	margin-top: 10px;
+
+	margin-bottom: 0px;
+
+}
+
+.copy a{ color:#FFFFFF}
+
+.clearfix.hidden-sm{ display:none}
+
+
+
+@media (max-width:767px){
+
+.carousel-inner>.item>a>img,.carousel-inner>.item>img{
+
+	width: 100%;
+
+	height: 300px;
+
+	display: block;}
+
+.clearfix.hidden-sm{
+
+	display: inherit
+
+}
+
+
+
+}
+
+@media screen and (min-width: 768px) {
+	
+	#myModal .modal-dialog  {width:950px;}
+
+}
+
+@media (min-width:768px) and (max-width:1600px){
+
+.navbar-nav.navbar-nav li a{
+
+	padding: 15px;
+
+	color: #000000;
+
+	border-right: 1px dotted #959595;
+	width:1600px;
+
+}
+
+
+
+.carousel-inner>.item>a>img,.carousel-inner>.item>img{
+
+	width: 100%;
+
+	height: 350px;
+
+	display: block;}
+
+
+
+
+
+}
+

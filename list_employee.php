@@ -1,0 +1,150 @@
+<?php
+
+include "dbconfig.php";
+
+//include "css_header.php";
+include "navbar_list.php";
+
+//Get the order data for this order.
+
+$sql="SELECT * FROM employees";
+
+$res=mysqli_query($con,$sql);
+
+//echo $sql;
+
+?>
+<meta charset="utf-8">
+
+<title>List of Orders</title>
+<!doctype html>
+
+<html>
+
+<head>
+   <?php include("dynamic_table.php");?>
+<style>
+table#employee tbody  tr {
+    cursor : pointer;
+}
+ </style>
+ 
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+    $('#employee').DataTable();
+
+} );
+
+</script>
+
+
+</head>
+
+<body>
+<div class="container-fluid">
+<div class="row">
+      <div class="col-md-12" style="margin-top: 10%;box-shadow: 5px 5px 5px;">
+        
+             <div class="panel">
+               <div class="panel-primary">
+                 <div class="panel-heading"><h4><center>List Of All employee</center></h4></div>
+               </div>
+             </div>
+         
+      </div>
+   </div>
+	<div class="row">
+    <div class="col-md-12">
+      <table id="employee" class="table table-striped table-bordered table-hover" cellspacing="0">
+         <thead>
+              <tr class="btn-primary">
+                           <th>Name</th>
+                           <th>Phone</th>
+                           <th>Mobile</th>
+                           <th>Address Line1</th>
+                           <th>Address Line2</th>
+                           <th>City</th>
+                           <th>Post Code</th>
+                           <th>Edit</th>
+                           <th>View</th>
+                           <th>Delete</th>
+              </tr>
+        </thead>
+        <tfoot>
+              <tr class="btn-primary">
+                           <th>Name</th>
+                           <th>Phone</th>
+                           <th>Mobile</th>
+                           <th>Address Line1</th>
+                           <th>Address Line2</th>
+                           <th>City</th>
+                           <th>Post Code</th>
+                           <th>Edit</th>
+                           <th>View</th>
+                           <th>Delete</th>
+              </tr>
+        </tfoot>
+        <tbody >
+
+        <?php
+
+                while($employees=mysqli_fetch_assoc($res))
+
+                  {                                    
+  ?>               
+                           <td><?php echo $employees['name'];?></td>
+                           <td><?php echo $employees['phone'];?></td>
+                           <td><?php echo $employees['mobile'];?></td>
+                           <td><?php echo $employees['address1'];?></td>
+                           <td><?php echo $employees['address2'];?></td>
+                           <td><?php echo $employees['city'];?></td>
+                           <td><?php echo $employees['post_code'];?></td>
+<td><a href="edit_employee.php?cid=<?php echo $employees['id'];?>"><i class="glyphicon glyphicon-user"></i></a></td>
+                           <td><a href="edit_employee.php?cid=<?php echo $employees['id'];?>"><i class="glyphicon glyphicon-user"></i></a></td>
+                           <td><a href="delete_employee.php?id=<?php echo $employee['id'];?>"><i class="glyphicon glyphicon-trash"></i>
+                </a></td>
+
+                
+
+            </tr>
+
+            
+
+      <?php           
+
+        }
+
+                
+
+        ?>
+
+            
+
+            </tbody>
+      </table>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+$('.order_detail').click(function(){
+  
+var order_id = $(this).attr('data-order-id');
+  var dataString = 'order_id=' + order_id;
+  $.ajax({
+    type: "POST",
+    url: 'get_order.php',
+    data: dataString,
+    success: function(data) {
+      $('#order_detail').html(data);
+      $('#myModal').modal('show');
+    }
+  });
+});  
+</script>
+    
+</body>
+
+</html>

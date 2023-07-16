@@ -1,0 +1,44 @@
+body {
+	font-size:16px;
+}
+.form-group > legend {background-color: #10a0d1;color: #fcf9f9;padding: 15px;}
+.col-md-6.mar-to {margin-top: 30px;}
+#new_customer > legend {background-color: f0b111;padding: 15px;color: #111}
+.col-md-12 > legend {padding: 15px;}
+#customer_id {display: none;}
+#address_id {display: none;}
+.form-control {
+  box-shadow: none !impotant;
+  height: 46px !impotant;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #939393;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+.well-legend {
+  display: block;
+  font-size: 14px;
+  width: auto;
+  padding: 10px 15px;
+  margin-bottom: 0px;
+  line-height: inherit;
+  color: #111;
+  background: #f0b111;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
