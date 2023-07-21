@@ -11,8 +11,8 @@ include('messagefile.php');
 <html>
 
 <head>
-  
-<?php
+
+    <?php
  include "dbconfig.php";
  //include "css_header.php";
  include "navbar_list.php";
@@ -24,46 +24,48 @@ $res=mysqli_query($con,$sql);
 //echo $sql;
 
 ?>
- </head>
+</head>
 
 <body style="font-family:Montserrat; font-size:13px;">
 
-               <div class="row" style="margin-bottom:20px; float:left; width: 100%;" >
-               <h4>
-<center>Skips Stock Report</center></h4>
-  <div class="col-md-2"> </div>
-      <div class="col-md-8">
-        <table  style="font-family:Montserrat; font-size:18px;" id="skips" class="table table-striped table-bordered table-hover" cellspacing="0">
+    <div class="row" style="margin-bottom:20px; float:left; width: 100%;">
+        <h4>
+            <center>Skips Stock Report</center>
+        </h4>
+        <div class="col-md-2"> </div>
+        <div class="col-md-8">
+            <table style="font-family:Montserrat; font-size:18px;" id="skips"
+                class="table table-striped table-bordered table-hover" cellspacing="0">
 
-        <thead>
+                <thead>
 
-            <tr class="btn-primary">
+                    <tr class="btn-primary">
 
-                           <th>Skip</th>
-                           <th>Out</th>
-                           <th>In Yard</th>
-                           <th>Total</th>
-                         
-            </tr>
+                        <th>Skip</th>
+                        <th>Out</th>
+                        <th>In Yard</th>
+                        <th>Total</th>
 
-        </thead>
+                    </tr>
 
-        <tfoot>
+                </thead>
 
-            <tr class="btn-primary">
-                           <th>Skip</th>
-                           <th>Out</th>
-                           <th>In Yard</th>
-                           <th>Total</th>
+                <tfoot>
 
-                           
-            </tr>
+                    <tr class="btn-primary">
+                        <th>Skip</th>
+                        <th>Out</th>
+                        <th>In Yard</th>
+                        <th>Total</th>
 
-        </tfoot>
 
-        <tbody >
+                    </tr>
 
-        <?php
+                </tfoot>
+
+                <tbody>
+
+                    <?php
 
                 while($skip=mysqli_fetch_assoc($res))
 
@@ -80,44 +82,43 @@ $res=mysqli_query($con,$sql);
 								 echo '<td>'.$in_yard.'</td>';
 								 echo '<td>'.$total.'</td>';
 								 ?>
-                          </tr>
-			      <?php  } ?>
+                    </tr>
+                    <?php  } ?>
 
-            
 
-            </tbody>
 
-    </table>
+                </tbody>
+
+            </table>
+
+        </div>
+
 
     </div>
-
-   
-</div>
     </div>
-<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div id="order_detail" class="modal-content">
     
     </div>
   </div>
-</div>
-<script type="text/javascript">
-
-  $(document).ready(function() {
-    $('#skips').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5',
-			'print'
-			        ]
-    } );
-} );
-
-</script>
+</div> -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#skips').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+                'print'
+            ]
+        });
+    });
+    </script>
 
 
 </body>
+
 </html>

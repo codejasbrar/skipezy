@@ -1,12 +1,11 @@
-
 <!--
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
  -->
- 
- 
- 
- <!---<nav class="navbar navbar-inverse navbar-fixed-top" style="margin-left:5px; margin-top:5px;">
+
+
+
+<!---<nav class="navbar navbar-inverse navbar-fixed-top" style="margin-left:5px; margin-top:5px;">
   <div class="navbar-header">
   
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -108,20 +107,53 @@
 </nav>-->
 
 
-<div class="col-md-12" style="margin-top:0px;box-shadow: 5px 5px 5px; padding:10px; background-color:#F3ECED;">
-<a href="dashboard.php" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-list"></i>&nbsp;Dashboard</a>
-<a href="list_job.php" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-list"></i>&nbsp;Live Jobs</a>
- <a href="new_order.php" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Add New Job</a>
- <a href="list_skips.php" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-pie-chart"></i>&nbsp;Stock Report</a>
+<!-- <div class="col-md-12" style="margin-top:0px;box-shadow: 0 0 10px; padding:10px; background-color:#f8f8f8;">
+  <a href="dashboard.php" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-list"></i>&nbsp;Dashboard</a>
+  <a href="list_job.php" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-list"></i>&nbsp;Live Jobs</a>
+  <a href="new_order.php" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Add New Job</a>
+  <a href="list_skips.php" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-pie-chart"></i>&nbsp;Stock Report</a> -->
 <!--- <a href="new_invoice.php" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-gbp"></i>&nbsp;New Invoice</a>
- <a href="list_invoice.php" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-list"></i>&nbsp;List of Invoices</a>
- <a href="list_invoice.php" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-print"></i> &nbsp;Print/Email Invoice</a>
-  <a href="list_tip_job.php" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Job Tipping</a>
- <a href="report_tip_jobs.php" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-list"></i>&nbsp;Tippping Report</a>--->
- <a href="report_live_jobs.php" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-list"></i>&nbsp;Live Jobs Report</a>
-<a href="customer_statement.php" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-list"></i>&nbsp;Customer Statement</a>
+  <a href="list_invoice.php" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-list"></i>&nbsp;List of Invoices</a>
+  <a href="list_invoice.php" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-print"></i> &nbsp;Print/Email Invoice</a>
+    <a href="list_tip_job.php" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Job Tipping</a>
+  <a href="report_tip_jobs.php" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-list"></i>&nbsp;Tippping Report</a>--->
+<!-- <a href="report_live_jobs.php" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-list"></i>&nbsp;Live Jobs Report</a>
+  <a href="customer_statement.php" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-list"></i>&nbsp;Customer Statement</a>
+  <a href="allocate_Job.php" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-list"></i>&nbsp;Allocate Jobs</a>
+</div> -->
 
 
-<a href="allocate_Job.php" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-list"></i>&nbsp;Allocate Jobs</a>
- 
-</div>
+<nav class="navbar navbar-default" style="box-shadow: 0 0 10px;">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="#">Brand</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav" style="font-weight: bold; font-size: 14px">
+                <li><a href="dashboard.php">Dashboard <span class="sr-only">(current)</span></a></li>
+                <li><a href="new_order.php">Add New Job</a></li>
+                <li><a href="list_job.php">Today's Jobs</a></li>
+                <li><a href="report_live_jobs.php">All Jobs</a></li>
+                <li><a href="allocate_Job.php">Allocate Jobs</a></li>
+                <li><a href="customer_statement.php">Customer Statement</a></li>
+                <li><a href="list_skips.php">Stock Report</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<script>
+$('nav li a').filter(function() {
+    return this.href === location.href;
+}).addClass('active');
+</script>

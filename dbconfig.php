@@ -9,12 +9,12 @@ error_reporting(0); // set error display to all
 
     $password   = "=psHGxX8EKRF";*/
     
-     $database   = "webezy_skiplive";
+     $database   = "skiptrack";
  	$host_name  = "localhost";
 
-    $user_name  = "webezy_skiplive";
+    $user_name  = "root";
 
-    $password   = "b2N+Y4ofW~Qe";
+    $password   = "";
 
 $con = new mysqli($host_name,$user_name,$password,$database) or die("Error " . mysqli_error($con));
 

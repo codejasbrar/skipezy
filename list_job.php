@@ -8,39 +8,46 @@ include('messagefile.php');
 
 <html>
 
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
     @media screen and (min-width: 768px) {
         .modal-dialog {
-          width: 700px; /* New width for default modal */
+            width: 700px;
+            /* New width for default modal */
         }
+
         .modal-sm {
-          width: 350px; /* New width for small modal */
+            width: 350px;
+            /* New width for small modal */
         }
     }
+
     @media screen and (min-width: 992px) {
         .modal-lg {
-          width: 1050px; /* New width for large modal */
+            width: 1050px;
+            /* New width for large modal */
         }
     }
-	.ui-datepicker { 
-  margin-left: 100px;
-  z-index: 1000;
-}
 
-div#rowIdz {
-    padding: 30px 21px;
-}
-</style>
- <?php
+    .ui-datepicker {
+        margin-left: 100px;
+        z-index: 1000;
+    }
+
+    div#rowIdz {
+        padding: 30px 21px;
+    }
+    </style>
+    <?php
  ob_start();
 include "navbar_list.php";?>
 
-  <!-- Date Picker Java Scripti Files -->
+    <!-- Date Picker Java Scripti Files -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  
-  <?php
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <?php
 
 include "dbconfig.php";
 
@@ -219,70 +226,56 @@ $rowcount=mysqli_num_rows($res);
 
 ?>
 
-<!-- //////////////////////// Get the Total Number of jobs ////////////////// -->
+    <!-- //////////////////////// Get the Total Number of jobs ////////////////// -->
 
-<?php 
+    <?php 
 $count_sql="SELECT * from orders";
 $count_res=mysqli_query($con,$count_sql);
 $total_jobs=mysqli_num_rows($count_res);
 ;?>
 
-
-
-
- </head>
+</head>
 
 <body style="font-family:Montserrat; font-size:16px;">
-<hr>
-  <div class="col-md-12" style="text-align:center;color:#0000; padding:5px; font-size:18px;">
-   <div class="col-md-4" style="margin-top:10px;">
-   <p style="text-align:center;color:#0000; padding:10px; font-size:16px;">Filter Jobs as Your Requirement</p>
-   </div>
-       
-       <div class="col-md-1"  style="margin-top:10px;">
-          <p id="delivery_jobs"  class="btn btn-primary btn-sm">Delivery</p>
-       </div>
-       <div class="col-md-1" style="margin-top:10px;">
-          <p id="collection_jobs"  class="btn btn-warning btn-sm">Collection</p> 
-       </div>
-       <div class="col-md-1" style="margin-top:10px;">
-          <p id="exchange_jobs"   class="btn btn-primary btn-sm">Exchange</p>
-       </div>
-       <div class="col-md-1"style="margin-top:10px;">
-          <p id="all_jobs" class="btn btn-primary btn-sm">See All Jobs</p>
-       </div>
-       <div class="col-md-1"style="margin-top:10px;">
-          <p id="all_jobs" class="btn btn-info btn-sm">Total Jobs = <?php echo $total_jobs;?></p>
-       </div>
-</div>
+    <hr>
+    <div class="col-md-12" style="text-align:center;color:#000; padding:10px; font-size:18px; text-align: left;">
+        <div class="" style="">
+            <p style="text-align:center;color:#000; padding:10px; font-size:16px; text-align: left; margin: 0">Filter
+                Jobs as Your
+                Requirement</p>
+        </div>
+        <div class="col-md-12" style="padding:10px;">
+            <p id="delivery_jobs" class="btn btn-primary btn-sm" style="margin-bottom: 10px">Delivery</p>
+            <p id="collection_jobs" class="btn btn-warning btn-sm" style="margin-bottom: 10px">Collection</p>
+            <p id="exchange_jobs" class="btn btn-primary btn-sm" style="margin-bottom: 10px">Exchange</p>
+            <p id="all_jobs" class="btn btn-primary btn-sm" style="margin-bottom: 10px">See All Jobs</p>
+            <p id="all_jobs" class="btn btn-info btn-sm" style="margin-bottom: 10px">Total Jobs =
+                <?php echo $total_jobs;?></p>
+        </div>
+    </div>
 
     <form action="" method="post">
-    <input type="hidden" name="filter_search" value="yes">
-     <div class="col-md-12" style="text-align:center;">
+        <input type="hidden" name="filter_search" value="yes">
+        <div class="col-md-12" style="text-align:center;">
 
-        <center>
-        <div class="col-md-2">
-         <div class="form-group">
-                      
- <input type="text" name="from" class="from form-control" placeholder="Date From" id="from">
-             
-         </div>
-        </div>
-       <div class="col-md-2">
-         <div class="form-group">
-                      
- <input type="text"  name="to" class="to form-control" placeholder="Date To" id="to">
-             
-         </div>
-        </div>
-     <div class="col-md-1">
-            <div class="form-group">
-                  <input type="text" name="job_id" id="job_id" class="job_id form-control" placeholder="Job ID">
-            </div>      
-    
-         </div>
-         
-        <!--- <div class="col-md-1">
+            <center>
+                <div class="col-md-2" style="padding-left: 0">
+                    <div class="form-group">
+                        <input type="text" name="from" class="from form-control" placeholder="Date From" id="from">
+                    </div>
+                </div>
+                <div class="col-md-2" style="padding-left: 0">
+                    <div class="form-group">
+                        <input type="text" name="to" class="to form-control" placeholder="Date To" id="to">
+                    </div>
+                </div>
+                <div class="col-md-1" style="padding-left: 0">
+                    <div class="form-group">
+                        <input type="text" name="job_id" id="job_id" class="job_id form-control" placeholder="Job ID">
+                    </div>
+                </div>
+
+                <!--- <div class="col-md-1">
             <div class="form-group">
                   <input type="text" name="driver_id" id="driver_id" class="driver_id form-control" placeholder="Driver">
             </div>      
@@ -295,84 +288,79 @@ $total_jobs=mysqli_num_rows($count_res);
 		
          </div>
       </div>-->
-      <div class="col-md-2">
-          <div class="form-group">
-            <input type="text" name="post_code" id="post_code" class="post_code form-control" placeholder="Post Code">
-          </div> 
-      </div>
-      <div class="col-md-2">
-          <div class="form-group">
-            <input type="text" name="name" 
-id="name" class="name form-control" placeholder="Customer Name">
-          </div> 
-      </div>
-	  
-	  <div class="col-md-2">
-          <div class="form-group">
-            <select class="form-control" name="only_name">
-				<option value="">choose</option>
-				<option value="1">Not Done</option>
-				<option value="2">Done</option>
-			</select>
-          </div> 
-      </div>
-	  
-	  
-	   <div class="col-md-1">
-          <div class="form-group">
-            <input type="submit" name="submit_search_data" value="Search" id="submit_search_data" class="name btn btn-primary" placeholder="Customer Name">
-          </div> 
-      </div>
-	   
+                <div class="col-md-2" style="padding-left: 0">
+                    <div class="form-group">
+                        <input type="text" name="post_code" id="post_code" class="post_code form-control"
+                            placeholder="Post Code">
+                    </div>
+                </div>
+                <div class="col-md-2" style="padding-left: 0">
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" class="name form-control" placeholder="Customer Name">
+                    </div>
+                </div>
+                <div class="col-md-2" style="padding-left: 0">
+                    <div class="form-group">
+                        <select class="form-control" name="only_name">
+                            <option value="">choose</option>
+                            <option value="1">Not Done</option>
+                            <option value="2">Done</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-1" style="padding-left: 0">
+                    <div class="form-group">
+                        <input type="submit" name="submit_search_data" value="Search" id="submit_search_data"
+                            class="name btn btn-primary" placeholder="Customer Name">
+                    </div>
+                </div>
         </div>
-</center>
-      </form>
-      
-   
-<hr>
- 
- 
+        </center>
+    </form>
 
-<div class="row" id="rowIdz">
-		<div class="col-md-12" id="filter_results">
-        
-			<?php include "list_jobs_data.php";?>
-        
-		</div>
-</div>
+    <hr>
 
+    <div class="row" id="rowIdz">
+        <div class="col-md-12" id="filter_results">
 
+            <?php include "list_jobs_data.php";?>
 
-<div class="modal fade" id="drivers_modal">
- 
-</div><!-- /.modal -->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="jobs_modal">
- 
-</div><!-- /.modal -->
+        </div>
+    </div>
 
+    <div class="modal fade" id="drivers_modal">
 
+    </div><!-- /.modal -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="jobs_modal">
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="tip_job_modal">
- 
-</div><!-- /.modal -->
+    </div><!-- /.modal -->
 
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="tip_job_modal">
 
-<!-- Delete Modal -->
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    </div><!-- /.modal -->
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            
+
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">Confirm Cancellation?</h4>
                 </div>
-            
+
                 <div class="modal-body">
-                    <p style="background-color:#EF0E12; color:white; font-size:20px;">Are you 100% Sure and Manager has Authorised?<img width="100" height="100" src="images/delete.png" class="img-thumbnail responsive">
+                    <p style="background-color:#EF0E12; color:white; font-size:20px;">Are you 100% Sure and Manager
+                        has
+                        Authorised?<img width="100" height="100" src="images/delete.png"
+                            class="img-thumbnail responsive">
                     </p>
-                    
+
                 </div>
-                
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-dismiss="modal">I am not Sure</button>
                     <a class="btn btn-danger btn-ok">I am sure - Cancel Job </a>
@@ -380,72 +368,94 @@ id="name" class="name form-control" placeholder="Customer Name">
             </div>
         </div>
     </div>
-<!-- Delete Modal Ends -->
+    <!-- Delete Modal Ends -->
 
-<!-- Delete Modal -->
-<div class="modal fade" id="job_done" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- Delete Modal -->
+    <div class="modal fade" id="job_done" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            
+
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">You Sure ?</h4>
                 </div>
-            
+
                 <div class="modal-body">
-                    <p style="background-color:#EF0E12; color:white; font-size:20px;">This Job is Aleady Updated. Please check Job Again.
+                    <p style="background-color:#EF0E12; color:white; font-size:20px;">This Job is Aleady Updated.
+                        Please
+                        check Job Again.
                     </p>
-                    
+
                 </div>
-                
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-    
-    
-    <div class="modal fade" id="success_model" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+    <div class="modal fade" id="success_model" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            
+
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">Job confirmation</h4>
                 </div>
-            
+
                 <div class="modal-body">
                     <p style=" color:#333; font-size:20px;">Job Updated Successfully.
                     </p>
-                    
+
                 </div>
-                
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-<!-- Delete Modal Ends -->
-<script type="text/javascript" src="../js_files/list_jobs.js"></script>
+    <!-- Delete Modal Ends -->
+    <script type="text/javascript" src="../js_files/list_jobs.js"></script>
 
-<script>
-    
-    $(document).ready(function(){
-        
-        $('.from').datepicker({ dateFormat: 'dd/mm/yy' });
-        
-         $('.to').datepicker({ dateFormat: 'dd/mm/yy' });
-         
-         
-         
-        
+    <script>
+    $(document).ready(function() {
+
+        $('.from').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+
+        $('.to').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+
     });
-    
-</script>
 
- 
+    $("#delivery_jobs").click(function() {
+        $(".Collection").hide();
+        $(".Delivery").show();
+        $(".Exchange").hide();
+    });
+    $("#collection_jobs").click(function() {
+        $(".Collection").show();
+        $(".Delivery").hide();
+        $(".Exchange").hide();
+    });
+    $("#exchange_jobs").click(function() {
+        $(".Collection").hide();
+        $(".Delivery").hide();
+        $(".Exchange").show();
+    });
+    $("#all_jobs").click(function() {
+        $(".Collection").show();
+        $(".Delivery").show();
+        $(".Exchange").show();
+    });
+    </script>
 
 </body>
+
 </html>

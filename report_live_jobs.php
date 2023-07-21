@@ -1,4 +1,3 @@
-
 <?php
 
 ob_start();
@@ -6,65 +5,56 @@ include "navbar.php";
 include "dbconfig.php";
 ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <form method="post" action="">
-	<div class="container-fluid" style="margin-top:200x;">
-	  <label><h2> Live Jobs Report</h2></label>
-			      <div class="well col-md-12" style="background-color:#e9e9e9; box-shadow: 5px 5px 5px;">
-			       	 
-                       
-                       <div class="col-md-2">
- 						<input type="text" name="from" class="from form-control" placeholder="Date From" id="from">
-                     </div>
-                       <div class="col-md-2">
-                        <input type="text"  name="to" class="to form-control" placeholder="Date To" id="to">
-             		 </div>
-					 
-					  <div class="col-md-2">
-                       <select class="form-control" name="skips">
-					   <option value="">choose </option>
-				<?php
-					
-					$all_skips = "select * from skips";
-					$d_sk = mysqli_query($con, $all_skips);
-					
-					while($aSkips = mysqli_fetch_array($d_sk)){
-						?>
-						
-						<option value="<?php echo $aSkips['id']; ?>"><?php echo $aSkips['size']; ?> </option>
-						
-						<?php
-						
-					}
-				
-				?>
-						
-						
-						
-					   
-					   </select>
-             		 </div>
-        
-                       <div class="col-md-2">
-                       	  <input type="submit" id="select_jobs" class="btn btn-warning" value="Search Jobs">
-                       </div>
-                       <div class="col-md-3">
-                       <input type="button" class="btn btn-primary btn-sm" onclick="printDiv('invoice')" value="Print" /> 
-                       </div>
-                       <!--
-                       <div class="col-md-2">
-                          <input type="button" name="btn" value="Print Invoices" id="filter_invoice" data-toggle="modal" data-target="#confirm-submit" class="btn btn-success btn-sm pull-right" />
-                       </div>
-			       	   -->
-                    <!-- now retrieve the transactions of this customer -->
-                   </div>
-                 			
-</div>
-				  
-			    
+    <div class="container-fluid" style="margin-top:200x;">
+        <label>
+            <h2> Live Jobs Report</h2>
+        </label>
+        <div class="well col-md-12" style="background-color:#f8f8f8;">
+
+            <div class="form-group col-md-2">
+                <input type="text" name="from" class="from form-control" placeholder="Date From" id="from">
+            </div>
+            <div class="form-group col-md-2">
+                <input type="text" name="to" class="to form-control" placeholder="Date To" id="to">
+            </div>
+
+            <div class="form-group col-md-2">
+                <select class="form-control" name="skips">
+                    <option value="">choose </option>
+                    <?php
+						$all_skips = "select * from skips";
+						$d_sk = mysqli_query($con, $all_skips);
+						while($aSkips = mysqli_fetch_array($d_sk)){
+					?>
+                    <option value="<?php echo $aSkips['id']; ?>"><?php echo $aSkips['size']; ?> </option>
+                    <?php
+						}
+					?>
+                </select>
+            </div>
+
+            <div class="form-group col-md-1">
+                <input type="submit" id="select_jobs" class="btn btn-warning" value="Search Jobs">
+            </div>
+            <div class="form-group col-md-1">
+                <input type="button" class="btn btn-primary btn-sm" onclick="printDiv('invoice')" value="Print" />
+            </div>
+            <!--
+			<div class="col-md-2">
+				<input type="button" name="btn" value="Print Invoices" id="filter_invoice" data-toggle="modal" data-target="#confirm-submit" class="btn btn-success btn-sm pull-right" />
+			</div>
+			-->
+            <!-- now retrieve the transactions of this customer -->
+        </div>
+
+    </div>
+
+
 </form>
-   <?php
+<?php
 $sql='';
 $sql="SELECT  order_status.name as status, orders.start_date,orders.id AS id, orders.end_date,orders.skips,orders.exchange_skip_id as exchanged_skip, orders.comments,orders.delivery_slot, 
 skips.size AS skip, customers.id AS customer_id, customers.name AS customer_name, customers.mobile as mobile, orders.amount AS total_amount, job_types.name AS job_type, payment_type.name AS payment_type,  delivery_address.address1,delivery_address.address2,delivery_address.city,delivery_address.post_code, employees.name AS driver,tip_status.name AS tip_status, orders.permit,orders.permit_permission, orders.permit_start_date, orders.permit_end_date
@@ -99,8 +89,6 @@ if (!empty($_POST['from']) && !empty($_POST['to']))
 		 $sql.=" WHERE 1=1";
 	}
 	
-	
-	
 	if (!empty($_POST['skips']))
 	{
 	  $skips=$con->real_escape_string($_POST['skips']);
@@ -108,9 +96,6 @@ if (!empty($_POST['from']) && !empty($_POST['to']))
 	  $sql.=" and  orders.skip_id  = '$skips'";
 	}
 	
-
-
-
 $sql.=" ORDER BY orders.id DESC
 ";
 
@@ -132,28 +117,25 @@ $res=mysqli_query($con,$sql);
 
 </head>
 
-<body> 	
-                
-                       <?php $invoice_html=
+<body>
+
+    <?php $invoice_html=
 					 '   
 					 <!doctype html>
 					  <html>
 					  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 					  	
                      <div id="invoice">
-					 <h2>Total Live Jobs:'.$total_skips.'</h2>
-				   <table class="table table-striped table-bordered table-hover">
+					 <h3>Total Live Jobs:'.$total_skips.'</h3>
+					 <div class="table-responsive">
+				   	  <table class="table table-striped table-bordered table-hover">
 			    		<thead class="blue-background">
 						 <tr>
                            <th>Job ID</th>
 
                            <th>Start Date</th>
 
-                           
-
                            <th width="10%">Skip</th>
-
-                           
 
                            <th>Job Type</th>
 
@@ -161,13 +143,6 @@ $res=mysqli_query($con,$sql);
 
                            <th  width="25%">Delivery Address</th>
 
-                           
-
-                           
-
-                           
-
-                           
                            <th>Status</th>
 						   <th>Amount</th>
 						   <th>Permit?</th>
@@ -175,18 +150,15 @@ $res=mysqli_query($con,$sql);
 						   <th>End date</th>
 						   <th>Comments</th>
 						   <th>Permit amount</th>
-						  
-
-
                            
-            </tr>
+						</tr>
 
-        </thead>
+					</thead>
 
-        <tbody style="font-size:18px;">
+					<tbody style="font-size:18px;">
         ';?>
-       
-        <?php
+
+    <?php
 				$total=0;
 				$total_nett=0;
 				$total_vat=0;
@@ -242,7 +214,7 @@ $res=mysqli_query($con,$sql);
 					 
 					 
                      ?>
-                     <?php
+    <?php
 					 
 					 $invoice_html.=
 					 '
@@ -253,7 +225,7 @@ $res=mysqli_query($con,$sql);
 						   <td><p>'.$job_type.'</p></td>
 						   
 						   <td><p>'.$customer_name.'('.$customer_id.')<br><b>'.$phone.'</b></p></td>
-						   <td><p>'.$address.'</p></td>
+						   <td><p>'.$address.' <br/> <b>Driver : </b>'.$driver.'</p></td>
 						   
 						   <td><p>'.$status.'</p></td>
 						   <td><p>£'.$total_amount.'</p></td>
@@ -266,7 +238,7 @@ $res=mysqli_query($con,$sql);
 					</tr>
 					';
 				 } ?>
-                 <?php 
+    <?php 
 				
 				 $invoice_html.='
 			
@@ -274,42 +246,45 @@ $res=mysqli_query($con,$sql);
 					</tbody>
 				 </table>
 				</div>
+				</div>
 					 
                ';?>
-			
-				   <?php 
+
+    <?php 
 				   
 				   echo 
-				   '<div class="col-md-8" id="invoice_div" style="margin-left:20px;">'.$invoice_html.'</div>'
+				   '<div class="container-fluid">
+				   <div id="invoice_div">'.$invoice_html.'</div>
+				   </div>'
 				  
 				   ;?>
-<script>
- 	$('#to').datepicker({
-	
-    	onSelect: function() {
-			
-                $( "#to" ).datepicker( "option", "dateFormat","dd/mm/yy");
-		
+    <script>
+    $('#to').datepicker({
+
+        onSelect: function() {
+
+            $("#to").datepicker("option", "dateFormat", "dd/mm/yy");
+
         }
-        });
-	$('#from').datepicker({
-	
-    	onSelect: function() {
-			
-                $( "#from" ).datepicker( "option", "dateFormat","dd/mm/yy");
-		
+    });
+    $('#from').datepicker({
+
+        onSelect: function() {
+
+            $("#from").datepicker("option", "dateFormat", "dd/mm/yy");
+
         }
-        });	
- </script>				  
-                   <script type="text/javascript">
-function printDiv(divName) {
-     var printContents = document.getElementById(divName).innerHTML;
-     var originalContents = document.body.innerHTML;
+    });
+    </script>
+    <script type="text/javascript">
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
 
-     document.body.innerHTML = printContents;
+        document.body.innerHTML = printContents;
 
-     window.print();
+        window.print();
 
-     document.body.innerHTML = originalContents;
-}
-                   </script>
+        document.body.innerHTML = originalContents;
+    }
+    </script>
