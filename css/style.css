@@ -1,32 +1,62 @@
 body {
-	font-size:16px;
+  font-size: 16px;
 }
-.form-group > legend {background-color: #10a0d1;color: #fcf9f9;padding: 15px;}
-.col-md-6.mar-to {margin-top: 30px;}
-#new_customer > legend {background-color: f0b111;padding: 15px;color: #111}
-.col-md-12 > legend {padding: 15px;}
-#customer_id {display: none;}
-#address_id {display: none;}
+.form-group > legend {
+  background-color: #10a0d1;
+  color: #fcf9f9;
+  padding: 15px;
+}
+.col-md-6.mar-to {
+  margin-top: 30px;
+}
+#new_customer > legend {
+  background-color: f0b111;
+  padding: 15px;
+  color: #111;
+}
+.col-md-12 > legend {
+  padding: 15px;
+}
+#customer_id {
+  display: none;
+}
+#address_id {
+  display: none;
+}
 .form-control {
-  box-shadow: none !impotant;
-  height: 46px !impotant;
+  box-shadow: none !important;
+  height: 46px !important;
+  border-radius: 0 !important;
 }
-
 fieldset {
   min-width: 0;
   padding: 0;
   margin: 0;
   border: 0;
 }
+.details-form-div {
+  margin-top: 30px;
+}
+.form-section-title {
+  background-color: #f0b111;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: 1px solid #939393;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #999;
+}
 .well {
   min-height: 20px;
-  padding: 19px;
+  padding: 15px;
   margin-bottom: 20px;
   background-color: #f8f8f8;
   border: 1px solid #939393;
   border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05); */
+  box-shadow: 0 0 10px #999 !important;
 }
 .well-legend {
   display: block;
@@ -39,6 +69,14 @@ fieldset {
   background: #f0b111;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.navbar-default .navbar-nav > li > a:hover,
+.active {
+  background-color: #087f93 !important;
+  color: #fff !important;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #333;
 }

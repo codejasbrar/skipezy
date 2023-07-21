@@ -102,7 +102,7 @@ function FPDF($orientation='P', $unit='mm', $size='A4')
 	$this->ColorFlag = false;
 	$this->ws = 0;
 	// Font path
-	define('FPDF_FONTPATH', '/font')
+	define('FPDF_FONTPATH', '/font');
 	if(defined('FPDF_FONTPATH'))
 	{
 		$this->fontpath = FPDF_FONTPATH;

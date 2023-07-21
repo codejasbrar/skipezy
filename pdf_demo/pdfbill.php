@@ -34,4 +34,3 @@ $pdf->SetFont('Arial, '');
 $pdf->Cell(100, 13, $_POST['name']);
 
 ?>
-
