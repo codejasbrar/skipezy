@@ -11,11 +11,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <?php
-
+include "navbar.php";
 include "dbconfig.php";
 
 //include "css_header.php";
-include "navbar_list.php";
+// include "navbar_list.php";
  include ("dynamic_table.php");
 //Get the order data for this order.
 
@@ -37,9 +37,9 @@ $res=mysqli_query($con,$sql);
 </head>
 
 <body style="font-family:Montserrat; font-size:13px;">
-    <div class="row">
-        <div class="col-md-12" style="box-shadow: 5px 5px 5px;">
-            <div class="panel">
+    <div class="row" style="margin: 0">
+        <div class="col-md-12" style="box-shadow: 0px 0px 10px; padding: 0">
+            <div class="panel" style="margin-bottom: 0">
                 <div class="panel-primary">
                     <div class="panel-heading">
                         <h4>
@@ -54,11 +54,13 @@ $res=mysqli_query($con,$sql);
     <div>&nbsp;</div>
     <div class="row col-md-8 col-md-offset-2">
         <form name="allocate" method="post">
-            <div class="panel" style="box-shadow: 5px 5px 5px;">
-                <div class="panel-primary">
+            <div class="panel job-details" style="padding: 0 10px; margin-top: 15px">
+                <p class="form-section-title"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Select Driver</p>
+                <!-- <div class="panel-primary">
                     <div class="panel-heading">Select Driver</div>
-                </div>
-                <div class="panel-body" style="background-color: #e9e9e9;">
+                </div> -->
+                <div class="panel-body"
+                    style="background-color: #f8f8f8; border: 1px solid #939393; box-shadow: 0 0 10px #999; border-radius: 4px;">
                     <div class="form-group col-md-6">
                         <select name="driver" style="width:70%;" id="exchange_skip_id" class="form-control">
                             <option style="padding:15px; background-color:#2977C9; color:#F9F0F1; cursor:pointer;"
@@ -79,8 +81,8 @@ $res=mysqli_query($con,$sql);
                             ?>
                         </select>
                     </div>
-                    <input type="submit" name="allocate_job" class="btn btn-round btn-success col-md-4"
-                        style="float:right;padding:15px;" value="Allocate Jobs">
+                    <input type="submit" name="allocate_job" class="btn btn-round btn-success btn-md"
+                        style="float:right;" value="Allocate Jobs">
                 </div>
             </div>
             <!-- this is end of button block and driver dropdown -->
@@ -205,6 +207,7 @@ $res=mysqli_query($con,$sql);
     $(document).ready(function() {
         $('#jobs').DataTable({
             dom: 'Bfrtip',
+            responsive: true,
             buttons: [
                 'copyHtml5',
                 'excelHtml5',

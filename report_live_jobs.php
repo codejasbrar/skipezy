@@ -3,6 +3,7 @@
 ob_start();
 include "navbar.php";
 include "dbconfig.php";
+include ("dynamic_table.php");
 ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -30,6 +31,21 @@ include "dbconfig.php";
 						while($aSkips = mysqli_fetch_array($d_sk)){
 					?>
                     <option value="<?php echo $aSkips['id']; ?>"><?php echo $aSkips['size']; ?> </option>
+                    <?php
+						}
+					?>
+                </select>
+            </div>
+
+            <div class="form-group col-md-2">
+                <select class="form-control" name="jobtypes">
+                    <option value="">Job Type </option>
+                    <?php
+						$all_job_types = "select * from job_types";
+						$d_jt = mysqli_query($con, $all_job_types);
+						while($aJobTypes = mysqli_fetch_array($d_jt)){
+					?>
+                    <option value="<?php echo $aJobTypes['id']; ?>"><?php echo $aJobTypes['name']; ?> </option>
                     <?php
 						}
 					?>
@@ -96,6 +112,13 @@ if (!empty($_POST['from']) && !empty($_POST['to']))
 	  $sql.=" and  orders.skip_id  = '$skips'";
 	}
 	
+	if (!empty($_POST['jobtypes']))
+	{
+	  $jobtypes=$con->real_escape_string($_POST['jobtypes']);
+	
+	  $sql.=" and  orders.job_type  = '$jobtypes'";
+	}
+	
 $sql.=" ORDER BY orders.id DESC
 ";
 
@@ -128,21 +151,15 @@ $res=mysqli_query($con,$sql);
                      <div id="invoice">
 					 <h3>Total Live Jobs:'.$total_skips.'</h3>
 					 <div class="table-responsive">
-				   	  <table class="table table-striped table-bordered table-hover">
-			    		<thead class="blue-background">
+				   	  <table class="table table-striped table-bordered table-hover" id="alljobs">
+			    		<thead class="blue-background btn-success">
 						 <tr>
                            <th>Job ID</th>
-
                            <th>Start Date</th>
-
                            <th width="10%">Skip</th>
-
                            <th>Job Type</th>
-
                            <th  width="10%">Customer</th>
-
                            <th  width="25%">Delivery Address</th>
-
                            <th>Status</th>
 						   <th>Amount</th>
 						   <th>Permit?</th>
@@ -287,4 +304,18 @@ $res=mysqli_query($con,$sql);
 
         document.body.innerHTML = originalContents;
     }
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#alljobs').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+                'print'
+            ]
+        });
+    });
     </script>

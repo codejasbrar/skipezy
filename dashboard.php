@@ -98,47 +98,63 @@ $col_sql_wait = mysqli_query($con, $col_sql_wait );
 
 ?>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>SkipTrak Software for Skip Hire Business</title>
-<link href='https://fonts.googleapis.com/css?family=Pacifico|Hind|Anton|Chewy|Bangers|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <title>SkipTrak Software for Skip Hire Business</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico|Hind|Anton|Chewy|Bangers|Montserrat:400,700'
+        rel='stylesheet' type='text/css'>
 
 
 </head>
 
 <body style="font-family:Montserrat;">
 
-<!-- page start-->
-<div class="clearfix">&nbsp;</div>
-            <div class="row">
-                    <section class="panel">
-                          <header class="panel-heading bg-info">  <H1 style="text-align:center;"> Welcome to Skip Easy - A Software for Skip Hire Industry</H1></header>
-                            <div class="panel-body" style="text-align:center;">
-                               <div class="col-sm-6">      
-                                       <!--<img src="images/header.JPG" class="img-responsive thumbnail"/> --->
-                                  </center>    
-                                  </div>  
-                              <div class="col-sm-3">
-                   <div class="clearfix">&nbsp;</div>
-                   <!-- <p style="cursor: pointer; padding:20px; background-color:#5BFB1A; color:000000; font-size:20px;">Total Skips Out : 23</p><div class="clearfix">&nbsp;</div>-->
-                     <p style="cursor: pointer; padding:20px; background-color:#F5D70B;  font-size:20px;" >Job to deliver today : <?php echo $rowcount_deliver; ?> </p><div class="clearfix">&nbsp;</div>
-                     <p style="cursor: pointer; padding:20px; background-color:#087F93; font-size:20px; color:#EFED0D;">Jobs to collect today : <?php echo $rowcount_dcoll; ?> </p><div class="clearfix">&nbsp;</div>
-                      <p style="cursor: pointer; padding:20px; background-color:#087F93; font-size:20px; color:#EFED0D;">Jobs to wait & load today : <?php echo $rowcount_dcoll_wait; ?> </p><div class="clearfix">&nbsp;</div>
-                      <p style="cursor: pointer; padding:20px; background-color:#087F93; font-size:20px; color:#EFED0D;">Jobs to exchange today : <?php echo $rowcount_dcoll_exchange; ?> </p><div class="clearfix">&nbsp;</div>
-                     <!-- <p style="cursor: pointer; padding:20px;background-color:#8E0608; font-size:20px; color:#F9F2F2;" >Total Income: £24,890.00</p>-->
-                   </div>    
-                   <!---<div class="col-md-3"><img src="images/bar-chart.png" class="img-responsive thumbnail"></div>
-                   <div class="col-md-3"><img src="images/charts.png" class="img-responsive thumbnail"></div>-->
-                                              
-                            </div> 
-                            
-                            <center>
-                            <header class="panel-heading bg-primary">  <H5 style="text-align:center; color:ffffff; font-size:16px;">Skip Easy - Skip Hire Software - Support Team  - M: 07792560326 </H3></header>
-                            </center>
-                    </section>
-                   
-                   
+    <!-- page start-->
+    <div class="clearfix">&nbsp;</div>
+    <div class="row" style="margin: 0">
+        <section class="panel">
+            <header class="panel-heading bg-info">
+                <H1 style="text-align:center;"> Welcome to Skip Easy - A Software for Skip Hire Industry</H1>
+            </header>
+            <div class="panel-body" style="text-align:center;">
+                <div class="col-sm-6">
+                    <!--<img src="images/header.JPG" class="img-responsive thumbnail"/> --->
+                    </center>
                 </div>
-     
+                <div class="col-sm-3">
+                    <div class="clearfix">&nbsp;</div>
+                    <!-- <p style="cursor: pointer; padding:20px; background-color:#5BFB1A; color:000000; font-size:20px;">Total Skips Out : 23</p><div class="clearfix">&nbsp;</div>-->
+                    <p style="cursor: pointer; padding:20px; background-color:#F5D70B;  font-size:20px;">Job to deliver
+                        today : <?php echo $rowcount_deliver; ?> </p>
+                    <div class="clearfix">&nbsp;</div>
+                    <p style="cursor: pointer; padding:20px; background-color:#087F93; font-size:20px; color:#EFED0D;">
+                        Jobs to collect today : <?php echo $rowcount_dcoll; ?> </p>
+                    <div class="clearfix">&nbsp;</div>
+                    <p style="cursor: pointer; padding:20px; background-color:#087F93; font-size:20px; color:#EFED0D;">
+                        Jobs to wait & load today : <?php echo $rowcount_dcoll_wait; ?> </p>
+                    <div class="clearfix">&nbsp;</div>
+                    <p style="cursor: pointer; padding:20px; background-color:#087F93; font-size:20px; color:#EFED0D;">
+                        Jobs to exchange today : <?php echo $rowcount_dcoll_exchange; ?> </p>
+                    <div class="clearfix">&nbsp;</div>
+                    <!-- <p style="cursor: pointer; padding:20px;background-color:#8E0608; font-size:20px; color:#F9F2F2;" >Total Income: £24,890.00</p>-->
+                </div>
+                <!---<div class="col-md-3"><img src="images/bar-chart.png" class="img-responsive thumbnail"></div>
+                   <div class="col-md-3"><img src="images/charts.png" class="img-responsive thumbnail"></div>-->
+
+            </div>
+
+            <center>
+                <header class="panel-heading bg-primary">
+                    <H5 style="text-align:center; color:ffffff; font-size:16px;">Skip Easy - Skip Hire Software -
+                        Support Team - M: 07792560326 </H3>
+                </header>
+            </center>
+        </section>
+
+
+    </div>
+
 </body>
+
 </html>

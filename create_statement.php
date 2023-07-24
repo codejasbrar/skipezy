@@ -1,4 +1,3 @@
-
 <meta charset="utf-8">
 
 <title>List of Orders</title>
@@ -7,13 +6,14 @@
 <html>
 
 <head>
-  
-<?php
+
+    <?php
 
 include "dbconfig.php";
 
 //include "css_header.php";
-include "navbar_list.php";
+// include "navbar_list.php";
+include "navbar.php";
  include "dynamic_table.php";
 //Get the order data for this order.
 
@@ -34,126 +34,131 @@ $result1 = mysqli_query($con, $customer_sql);
 /////////// we extract the variable for writing customer name ///////////////////
 $customer = mysqli_fetch_assoc($result1)
 ?>
-<style>
-table#invoices tbody  tr {
-    cursor : pointer;
-}
- </style>
- </head>
+    <style>
+    table#invoices tbody tr {
+        cursor: pointer;
+    }
+    </style>
+</head>
 
 <body style="font-family:Montserrat; font-size:13px;">
 
-               
-      <div class="col-md-12" style="margin-top:50px;">
-      
-         <table id="customers" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 
-                     <thead>
+    <div class="col-md-12" style="margin-top:50px;">
 
-                        <tr class="btn-primary">
+        <table id="customers" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 
-                           <th>Job ID</th>
-                           <th>Date</th>
-                           <th>Job</th>
-                           <th>Days</th>
-                           <th>Skip Size</th>
+            <thead>
 
-                           <th>Total</th>
-                           <th>Payment</th>
-                           <th>Status</th>
+                <tr class="btn-primary">
 
-                        </tr>
-					<tr><td colspan="8"><h4><center>Statement of <?php echo $customer['customer_name'] ;?> </center></h4></td></tr>
-                     </thead>
+                    <th>Job ID</th>
+                    <th>Date</th>
+                    <th>Job</th>
+                    <th>Days</th>
+                    <th>Skip Size</th>
 
-                     <tfoot>
+                    <th>Total</th>
+                    <th>Payment</th>
+                    <th>Status</th>
 
-                        <tr class="btn-primary">
-                           <th>Job ID</th>
-                           <th>Date</th>
-                           <th>Job</th>
-                           <th>Days</th>
-                           <th>Skip Size</th>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <h4>
+                            <center>Statement of <?php echo $customer['customer_name'] ;?> </center>
+                        </h4>
+                    </td>
+                </tr>
+            </thead>
 
-                           <th>Total</th>
-                           <th>Payment</th>
-                           <th>Status</th>
+            <tfoot>
 
-                        </tr>
-						
-                     </tfoot>
+                <tr class="btn-primary">
+                    <th>Job ID</th>
+                    <th>Date</th>
+                    <th>Job</th>
+                    <th>Days</th>
+                    <th>Skip Size</th>
 
-                     <tbody >
+                    <th>Total</th>
+                    <th>Payment</th>
+                    <th>Status</th>
 
-<?php
+                </tr>
+
+            </tfoot>
+
+            <tbody>
+
+                <?php
 while ($job = mysqli_fetch_assoc($result)) {
-   ?>               
+   ?>
 
-                        <td><?php echo $job['order_id']; ?></td>
-                        <td><?php
+                <td><?php echo $job['order_id']; ?></td>
+                <td><?php
                            $start_date = new DateTime($job['start_date']);
 
                            echo $start_date->format("d F, Y")
-                           ?></td> 
-                           <td><?php echo $job['job_type']; ?></td>
-                       
-   <?php
+                           ?></td>
+                <td><?php echo $job['job_type']; ?></td>
+
+                <?php
    $today = new DateTime();
    $no_of_days = $today->diff($start_date)->format("%a");
    if ($no_of_days > 30) {
       ?>
-                           <td bgcolor="#F30105"><?php echo $no_of_days; ?></td>  
-                           <?php } else { ?>
-                           <td><?php echo $no_of_days; ?></td>  
-                           <?php } ?>
+                <td bgcolor="#F30105"><?php echo $no_of_days; ?></td>
+                <?php } else { ?>
+                <td><?php echo $no_of_days; ?></td>
+                <?php } ?>
 
-                        <td><?php echo $job['skip']; ?></td>
+                <td><?php echo $job['skip']; ?></td>
 
-                        <td bgcolor="#08E006"><?php echo "" . $job['total_amount']; ?></td>
-                       
-                        <?php if ($job['payment_type'] == 'Not Paid') { ?>
-                           <td bgcolor="#F30105" style="color:#F7F4F4;"><?php echo $job['payment_type']; ?></td>  
-                        <?php } elseif ($job['payment_type'] == 'Fully Paid') { ?>
-                           <td bgcolor="#0C9402" style="color:#F7F4F4;" ><?php echo $job['payment_type']; ?></td>  
-                        <?php } else { ?><td><?php echo $job['payment_type']; ?></td><?php } ?>
-                        <td><?php echo $job['order_status']; ?></td>
+                <td bgcolor="#08E006"><?php echo "" . $job['total_amount']; ?></td>
 
-
-
-                        </tr>
+                <?php if ($job['payment_type'] == 'Not Paid') { ?>
+                <td bgcolor="#F30105" style="color:#F7F4F4;"><?php echo $job['payment_type']; ?></td>
+                <?php } elseif ($job['payment_type'] == 'Fully Paid') { ?>
+                <td bgcolor="#0C9402" style="color:#F7F4F4;"><?php echo $job['payment_type']; ?></td>
+                <?php } else { ?><td><?php echo $job['payment_type']; ?></td><?php } ?>
+                <td><?php echo $job['order_status']; ?></td>
 
 
 
-                        <?php
+                </tr>
+
+
+
+                <?php
                      }
                      ?>
 
 
 
-                     </tbody>
+            </tbody>
 
-                  </table>
+        </table>
 
     </div>
 
 
-<script type="text/javascript">
-
-  $(document).ready(function() {
-    $('#customers').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5',
-			'print'
-			        ]
-    } );
-} );
-
-</script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#customers').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+                'print'
+            ]
+        });
+    });
+    </script>
 
 
 </body>
+
 </html>

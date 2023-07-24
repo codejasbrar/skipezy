@@ -36,12 +36,16 @@ include('messagefile.php');
     }
 
     div#rowIdz {
-        padding: 30px 21px;
+        padding: 30px 10px;
     }
     </style>
     <?php
  ob_start();
-include "navbar_list.php";?>
+
+ include "navbar.php";
+//  include "navbar_list.php";
+
+?>
 
     <!-- Date Picker Java Scripti Files -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -320,7 +324,7 @@ $total_jobs=mysqli_num_rows($count_res);
 
     <hr>
 
-    <div class="row" id="rowIdz">
+    <div class="row" id="rowIdz" style="margin: 0">
         <div class="col-md-12" id="filter_results">
 
             <?php include "list_jobs_data.php";?>
