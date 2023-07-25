@@ -465,11 +465,21 @@ WHERE orders.id=$order_id LIMIT 1";
                             <div class="form-group col-md-3">
                                 <label for="delivery_slot">Delivery Slot</label>
                                 <select id="delivery_slot" name="delivery_slot" class="form-control">
-                                    <option value="AM" <?php if ($row['delivery_slot'] == 'AM') { echo 'selected'; } ?>>
-                                        AM
+                                    <option value="7 Days"
+                                        <?php if ($row['delivery_slot'] == '7 Days') { echo 'selected'; } ?>>
+                                        7 Days
                                     </option>
-                                    <option value="PM" <?php if ($row['delivery_slot'] == 'PM') { echo 'selected'; } ?>>
-                                        PM
+                                    <option value="14 Days"
+                                        <?php if ($row['delivery_slot'] == '14 Days') { echo 'selected'; } ?>>
+                                        14 Days
+                                    </option>
+                                    <option value="21 Days"
+                                        <?php if ($row['delivery_slot'] == '21 Days') { echo 'selected'; } ?>>
+                                        21 Days
+                                    </option>
+                                    <option value="28 Days"
+                                        <?php if ($row['delivery_slot'] == '28 Days') { echo 'selected'; } ?>>
+                                        28 Days
                                     </option>
                                 </select>
                             </div>

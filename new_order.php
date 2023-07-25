@@ -330,11 +330,11 @@ initAutocomplete();
 
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin: 0">
             <div class="col-md-12">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div class="panel job-details" style="padding: 0 10px; margin-top: 15px">
+                    <div class="panel job-details" style="padding: 0; margin-top: 15px">
                         <p class="form-section-title"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Enter Job
                             Details</p>
                         <!-- <div class="panel-primary" style="box-shadow: 0 0 10px #999;">
@@ -477,8 +477,10 @@ initAutocomplete();
                                 <div class="form-group col-md-3">
                                     <label for="delivery_slot">Delivery Slot</label>
                                     <select id="delivery_slot" name="delivery_slot" class="form-control">
-                                        <option value="AM">AM</option>
-                                        <option value="PM">PM</option>
+                                        <option value="7 Days">7 Days</option>
+                                        <option value="14 Days">14 Days</option>
+                                        <option value="21 Days">21 Days</option>
+                                        <option value="28 Days">28 Days</option>
                                     </select>
                                 </div>
 

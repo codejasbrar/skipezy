@@ -15,7 +15,8 @@ include('messagefile.php');
     <?php
  include "dbconfig.php";
  //include "css_header.php";
- include "navbar_list.php";
+//  include "navbar_list.php";
+include "navbar.php";
  include ("dynamic_table.php");
 //Get the order data for this order.
 $sql="SELECT * from skips ORDER BY id desc";

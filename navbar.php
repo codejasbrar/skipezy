@@ -17,13 +17,14 @@ include('messagefile.php');
 * {
     font-size: 12px;
     font-family: arial;
+    margin: 0;
 }
 
 table th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #4CAF50;
+    /* background-color: #4CAF50; */
     color: white;
 }
 
