@@ -477,8 +477,10 @@ initAutocomplete();
                                 <div class="form-group col-md-3">
                                     <label for="delivery_slot">Delivery Slot</label>
                                     <select id="delivery_slot" name="delivery_slot" class="form-control">
-                                        <option value="AM">AM</option>
-                                        <option value="PM">PM</option>
+                                        <option value="7 Days">7 Days</option>
+                                        <option value="14 Days">14 Days</option>
+                                        <option value="21 Days">21 Days</option>
+                                        <option value="28 Days">28 Days</option>
                                     </select>
                                 </div>
 
