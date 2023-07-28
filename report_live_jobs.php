@@ -50,6 +50,17 @@ include ("dynamic_table.php");
 						}
 					?>
                 </select>
+
+            </div>
+
+            <div class="form-group col-md-2">
+                <select class="form-control" name="no_of_days">
+                    <option value="7">7</option>
+                    <option value="14">14</option>
+                    <option value="21">21</option <option value="28">28</option>
+
+                </select>
+
             </div>
 
             <div class="form-group col-md-1">
@@ -90,7 +101,16 @@ $today= date('Y-m-d');
 $from="";
 $to="";
 $company='';
-
+if(!empty($_POST['no_of_days']))
+{
+$a=$_POST['no_of_days'];
+$new_start_date = date('Y-m-d', strtotime('-'.$a.'days')); // 26th July - 7 19th July
+}
+if(!empty($_POST['jobtypes']))
+{
+$job_type=$_POST['jobtypes'];
+}
+//echo $job_type;
 if (!empty($_POST['from']) && !empty($_POST['to']))
 	{
 	  $from=$con->real_escape_string($_POST['from']);
@@ -112,15 +132,17 @@ if (!empty($_POST['from']) && !empty($_POST['to']))
 	  $sql.=" and  orders.skip_id  = '$skips'";
 	}
 	
+	
+
 	if (!empty($_POST['jobtypes']))
 	{
 	  $jobtypes=$con->real_escape_string($_POST['jobtypes']);
 	
-	  $sql.=" and  orders.job_type  = '$jobtypes'";
-	}
+	  $sql.=" and  orders.job_type  = '$job_type' AND orders.start_date='".$new_start_date."' order by orders.id desc";
+	} // where jobtype =2 and start_date = 19-07-2023
 	
-$sql.=" ORDER BY orders.id DESC
-";
+//$sql.=" ORDER BY orders.id DESC
+//";
 
 
 $res=mysqli_query($con,$sql);

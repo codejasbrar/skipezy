@@ -20,11 +20,12 @@ $today = date("d/m/y", strtotime($today));
 
 ?>
 <form method="post" action="">
-<input type="hidden" name="status" value="2">
-                       <div class="form-group col-md-1 pull-right">
-                           <input style="margin-top:30px;" type="submit" name="confirm_booking" class="btn btn-sm btn-success" value="Update"/>
+    <input type="hidden" name="status" value="2">
+    <div class="form-group col-md-1 pull-right">
+        <input style="margin-top:30px;" type="submit" name="confirm_booking" class="btn btn-sm btn-success"
+            value="Update" />
 
-                       </div>
+    </div>
     <!--- <div class="form-group col-md-2 pull-right">
         <label>Job Status</label>
 			       	   <select name="status" id="status" class="form-control">
@@ -38,68 +39,67 @@ $today = date("d/m/y", strtotime($today));
 			       	   </select>
 			       	   </div>--->
     <style>
-        
-        .badge {
-    display: inline-block;
-    min-width: 10px;
-    padding: 3px 7px;
-    font-size: 12px;
-    font-weight: 500;
-    color: #fff;
-    line-height: 1;
-    vertical-align: baseline;
-    white-space: nowrap;
-    text-align: center;
-    background-color: #31708f;
-    border-radius: 10px;
-}
-        
-    </style>                   
-                                         
-<table  style="font-family:Montserrat; font-size:13px;" id="jobs" class="table table list_jobs table-hover table-bordered table-striped table-info" cellspacing="0" border="1">
+    .badge {
+        display: inline-block;
+        min-width: 10px;
+        padding: 3px 7px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #fff;
+        line-height: 1;
+        vertical-align: baseline;
+        white-space: nowrap;
+        text-align: center;
+        background-color: #31708f;
+        border-radius: 10px;
+    }
+    </style>
+
+    <table style="font-family:Montserrat; font-size:13px;" id="jobs"
+        class="table table list_jobs table-hover table-bordered table-striped table-info" cellspacing="0" border="1">
 
 
 
         <thead>
 
-			
+
 
             <tr class="btn-primary" style="padding:10px;">
 
 
 
-                           <th>Job ID</th>
+                <th>Job ID</th>
 
-                           <th>Start Date</th>
+                <th>Start Date</th>
 
-                           
 
-                           <th>Total Days</th>
 
-                           <th>Skips Out</th>
+                <th>Total Days</th>
 
-                           <th>Job Type</th>
+                <th>Skips Out</th>
 
-                           <th>Customer</th>
+                <th>Job Type</th>
 
-                           <th>Delivery Address</th>
+                <th>Customer</th>
 
-                           
+                <th>Delivery Address</th>
 
-                           <th>Total</th>
 
-                           
 
-                          <!-- <th>Driver</th>
+                <th>Total</th>
+
+
+
+                <!-- <th>Driver</th>
 
                            <th>Tip Yard</th>--->
-                           <th  style="width:400px;">Comments</th>
-                           
-                           <th>Status</th>
-                           <th>Edit Job</th>
-                           <th bgcolor="#F70B0F">Delete</th>
+                <th style="width:400px;">Comments</th>
 
-                           <th style="padding: 12px 30px;"><input class="checkbox" type="checkbox" id="select_all" /></th>
+                <th>Status</th>
+                <th>Edit Job</th>
+                <th bgcolor="#F70B0F">Delete</th>
+
+                <th style="padding: 12px 30px;"><input class="checkbox" type="checkbox" id="select_all" /></th>
 
             </tr>
 
@@ -115,34 +115,34 @@ $today = date("d/m/y", strtotime($today));
 
             <tr class="btn-primary">
 
-                           <th>Job ID</th>
+                <th>Job ID</th>
 
-                           <th>Start Date</th>
+                <th>Start Date</th>
 
-                           
 
-                           <th>Total Days</th>
 
-                           <th>Skips Out</th> 
+                <th>Total Days</th>
 
-                           <th>Job Type</th>
+                <th>Skips Out</th>
 
-                           <th>Customer</th>
+                <th>Job Type</th>
 
-                           <th>Delivery Address</th>
+                <th>Customer</th>
 
-                           
+                <th>Delivery Address</th>
 
-                           <th>Total</th>
-  <!--- <th>Driver</th>
+
+
+                <th>Total</th>
+                <!--- <th>Driver</th>
 
                            <th>Tip Yard</th>---->
-                           <th style="width:400px;">Comments</th>
-                           
-                           <th>Status</th>
-                           <th>Edit Job</th>
-							<th bgcolor="#F70B0F">Delete</th>
-                           <th style="padding: 12px 30px;"></th>
+                <th style="width:400px;">Comments</th>
+
+                <th>Status</th>
+                <th>Edit Job</th>
+                <th bgcolor="#F70B0F">Delete</th>
+                <th style="padding: 12px 30px;"></th>
 
             </tr>
 
@@ -154,11 +154,11 @@ $today = date("d/m/y", strtotime($today));
 
         <tbody>
 
-			
 
 
 
-        <?php
+
+            <?php
 
 
 
@@ -174,35 +174,37 @@ $today = date("d/m/y", strtotime($today));
 
 					  if($job['status']=='Done'){?>
 
-                      
 
-                        <tr class="job_type <?php echo $job['job_type'] ;?>" style="cursor:pointer; color:#2A8AC0; font-weight:bold;">
 
-                        <?php 
+            <tr class="job_type <?php echo $job['job_type'] ;?>"
+                style="cursor:pointer; color:#2A8AC0; font-weight:bold;">
+
+                <?php 
 
 					  }else{?>
 
-							<tr class="job_type <?php echo $job['job_type'] ;?>" style="cursor:pointer; color:#F80409; font-weight:bold;">
+            <tr class="job_type <?php echo $job['job_type'] ;?>"
+                style="cursor:pointer; color:#F80409; font-weight:bold;">
 
-							<?php }?>
+                <?php }?>
 
-                           <td><?php
+                <td><?php
 
 						    echo $job['id']; ?></td>
 
-                          
 
-                           <td>
 
-						   <?php $start = date("d/m/y", strtotime($job['start_date'])); 
+                <td>
+
+                    <?php $start = date("d/m/y", strtotime($job['start_date'])); 
 
 						   
 
 						   echo $start  ;?></td>
 
-                           
 
-            <?php
+
+                <?php
 
 			   $from = new DateTime($job['start_date']); 
 
@@ -212,13 +214,13 @@ $today = date("d/m/y", strtotime($today));
 
                if($no_of_days>20){?>
 
-               <td style="color:#F7F4F4; background-color:#D30D11;"><?php echo $no_of_days;?></td>  
+                <td style="color:#F7F4F4; background-color:#D30D11;"><?php echo $no_of_days;?></td>
 
-               <?php }else{?>
+                <?php }else{?>
 
-               <td><?php echo $no_of_days;?></td>  
+                <td><?php echo $no_of_days;?></td>
 
-              <?php }   
+                <?php }   
 
 			  if($no_of_days>3)
 
@@ -236,13 +238,13 @@ $today = date("d/m/y", strtotime($today));
 
 			  ?>
 
-                           
 
-                           <td>
 
-						   
+                <td>
 
-						   <?php
+
+
+                    <?php
 
 						   $qty=$job['skips'];
 
@@ -262,11 +264,11 @@ $today = date("d/m/y", strtotime($today));
 
 							?>
 
-                            
 
-                            </td>
 
-                            <?php if($job['job_type']=="Exchange")
+                </td>
+
+                <?php if($job['job_type']=="Exchange")
 
 							{
 
@@ -282,57 +284,67 @@ $today = date("d/m/y", strtotime($today));
 
 					?>
 
-							<td><?php echo "<b>".$job['job_type']."<br> with ".$skip_id;?></td>
+                <td><?php echo "<b>".$job['job_type']."<br> with ".$skip_id;?></td>
 
-							<?php }else{?>
+                <?php }else{?>
 
-								
 
-							
 
-                            <td><?php echo $job['job_type']." / ".$job['delivery_slot'];?></td>
 
-                            <?php }?>
 
-                            <!-- customer Name-->
+                <td><?php echo $job['job_type']." / ".$job['delivery_slot'];?></td>
 
-                            
+                <?php }?>
 
-                            <td col-id="6" class="customers" data-id="<?php echo $job['customer_id'];?>"><?php echo $job['customer_name'];?></td>
+                <!-- customer Name-->
 
-                            
 
-                           <td><?php echo $job['address1'].", ".$job['city'].", <span class='badge' style='padding:10px;'>".$job['post_code']."</span>";?></td>
 
-                           
-<td><input required name="total_amount[]" type="text" data-id=<?php echo $job['id'];?> id="total_amount<?php echo $job['id'];?>" class="form-control total_amount" data-amount="<?php echo $job['total_amount']; ?>" value=<?php echo $job['total_amount']; ?>></td>
-                           
-<!--<td><input  name="driver[]" type="text" data-id=<?php echo $job['id'];?> id="driver<?php echo $job['id'];?>" class="form-control driver_name" data-driver="<?php echo $job['driver']; ?>" value=<?php echo $job['driver']; ?>></td>
+                <td col-id="6" class="customers" data-id="<?php echo $job['customer_id'];?>">
+                    <?php echo $job['customer_name'];?></td>
+
+
+
+                <td><?php echo $job['address1'].", ".$job['city'].", <span class='badge' style='padding:10px;'>".$job['post_code']."</span>";?>
+                </td>
+
+
+                <td><input required name="total_amount[]" type="text" data-id=<?php echo $job['id'];?>
+                        id="total_amount<?php echo $job['id'];?>" class="form-control total_amount"
+                        data-amount="<?php echo $job['total_amount']; ?>" value=<?php echo $job['total_amount']; ?>>
+                </td>
+
+                <!--<td><input  name="driver[]" type="text" data-id=<?php echo $job['id'];?> id="driver<?php echo $job['id'];?>" class="form-control driver_name" data-driver="<?php echo $job['driver']; ?>" value=<?php echo $job['driver']; ?>></td>
 
 <td><input  name="yard[]" type="text" data-id=<?php echo $job['id'];?> id="yard<?php echo $job['id'];?>" class="form-control yard" data-yard="<?php echo $job['yard']; ?>" value=<?php echo $job['yard']; ?>></td>--->
 
-<td><input  name="comments[]" type="text" data-id=<?php echo $job['id'];?> id="comments<?php echo $job['id'];?>" class="form-control comments" data-comments="<?php echo $job['comments']; ?>" value="<?php echo $job['comments']; ?>"></td>
+                <td><input name="comments[]" type="text" data-id=<?php echo $job['id'];?>
+                        id="comments<?php echo $job['id'];?>" class="form-control comments"
+                        data-comments="<?php echo $job['comments']; ?>" value="<?php echo $job['comments']; ?>"></td>
 
 
-     <td col-id="13" data-id="<?php echo $job['id'];?>"><?php echo $job['status'];?></td> 
-    <input id="status" type="hidden" value="<?php echo $job['status'];?>"/>
-     <td><a href="edit_order.php?job_id=<?php echo $job['id'];?>"><i class="glyphicon glyphicon-check"></i></a></td>
-     <td><a href="delete_job.php?id=<?php echo $job['id'];?>"><i class="glyphicon glyphicon-trash"></i></a></td>
-    <input type="hidden" name="booking_id[]" value=<?php echo $job['id'];?>>
-<td style="text-align:right; font-size:20px;padding: 12px 30px;"><input name="selected_job[]" type="checkbox" class="checkbox selected_job" value=<?php echo $job['id'];?>></td>
+                <td col-id="13" data-id="<?php echo $job['id'];?>"><?php echo $job['status'];?></td>
+                <input id="status" type="hidden" value="<?php echo $job['status'];?>" />
+                <td><a href="edit_order.php?job_id=<?php echo $job['id'];?>"><i
+                            class="glyphicon glyphicon-check"></i></a></td>
+                <td><a href="delete_job.php?id=<?php echo $job['id'];?>"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+                <input type="hidden" name="booking_id[]" value=<?php echo $job['id'];?>>
+                <td style="text-align:right; font-size:20px;padding: 12px 30px;"><input name="selected_job[]"
+                        type="checkbox" class="checkbox selected_job" value=<?php echo $job['id'];?>></td>
 
-                 
 
-              </tr>
 
-   <?php } ?>
+            </tr>
 
-   		 </tbody>
+            <?php } ?>
 
-			   </table>
-               
-               </form>
-     <?php
+        </tbody>
+
+    </table>
+
+</form>
+<?php
     // print_r($_POST);
        if(isset($_POST['driver_id']) && $_POST['driver_id']!='' && isset($_POST['selected_job']))
 			{
@@ -505,8 +517,8 @@ $today = date("d/m/y", strtotime($today));
 }
 							
 					$sql="UPDATE orders SET 
-					status=$status 
-					
+					status=$status, 
+					job_type = 2
 					WHERE id=".$booking_id;
 					//echo $sql;
 					if (!mysqli_query($con,$sql)) {
@@ -522,121 +534,119 @@ $today = date("d/m/y", strtotime($today));
 			}
 
 			
-	?> 
-            
-               <script type="text/javascript">
-$('#select_all').on('click',function(){
-        if(this.checked){
-            $('.checkbox').each(function(){
-                this.checked = true;
-            });
-        }else{
-             $('.checkbox').each(function(){
-                this.checked = false;
-            });
+	?>
+
+<script type="text/javascript">
+$('#select_all').on('click', function() {
+    if (this.checked) {
+        $('.checkbox').each(function() {
+            this.checked = true;
+        });
+    } else {
+        $('.checkbox').each(function() {
+            this.checked = false;
+        });
+    }
+});
+
+$('.checkbox').on('click', function() {
+    if ($('.checkbox:checked').length == $('.checkbox').length) {
+        $('#select_all').prop('checked', true);
+    } else {
+        $('#select_all').prop('checked', false);
+    }
+});
+
+$('.total_amount').blur(function() {
+    var tr = $(this).parent().parent();
+    var index = tr.find('.total_amount').attr('data-id');
+
+
+    var total_amount = $('#total_amount' + index).val();
+
+    var dataString = 'amount=' + total_amount + '&id=' + index;
+    $.ajax({
+        type: "POST",
+        url: "ajax/update_amount.php",
+        data: dataString,
+        beforeSend: function() {
+            $("#contact_name").css("background", "#F5C211");
+        },
+        success: function(data) {
+
+            $(this).css("background", "#green");
         }
     });
-    
-    $('.checkbox').on('click',function(){
-        if($('.checkbox:checked').length == $('.checkbox').length){
-            $('#select_all').prop('checked',true);
-        }else{
-            $('#select_all').prop('checked',false);
+    alert(amount);
+});
+
+
+$('.driver_name').blur(function() {
+    var tr = $(this).parent().parent();
+    var index = tr.find('.driver_name').attr('data-id');
+
+
+    var driver = $('#driver' + index).val();
+
+    var dataString = 'driver=' + driver + '&id=' + index;
+    $.ajax({
+        type: "POST",
+        url: "ajax/update_driver.php",
+        data: dataString,
+        beforeSend: function() {
+            $("#contact_name").css("background", "#F5C211");
+        },
+        success: function(data) {
+
+            $(this).css("background", "#green");
         }
     });
-	
-	$('.total_amount').blur(function(){
-		var tr=$(this).parent().parent();  
-		var index=tr.find('.total_amount').attr('data-id');
 
-		
-		var total_amount=$('#total_amount'+index).val(); 
-		
-		var dataString='amount='+total_amount+'&id='+index;
-		$.ajax({
-		type: "POST",
-		url: "ajax/update_amount.php",
-		data:dataString,
-		beforeSend: function(){
-			$("#contact_name").css("background","#F5C211");
-		},
-		success: function(data){
-			
-			$(this).css("background","#green");
-		}
-		});
-		alert(amount);
-	});
-	
-	
-	$('.driver_name').blur(function(){
-		var tr=$(this).parent().parent();  
-		var index=tr.find('.driver_name').attr('data-id');
+});
 
-		
-		var driver=$('#driver'+index).val(); 
-		
-		var dataString='driver='+driver+'&id='+index;
-		$.ajax({
-		type: "POST",
-		url: "ajax/update_driver.php",
-		data:dataString,
-		beforeSend: function(){
-			$("#contact_name").css("background","#F5C211");
-		},
-		success: function(data){
-			
-			$(this).css("background","#green");
-		}
-		});
-		
-	});
-	
-	$('.yard').blur(function(){
-		var tr=$(this).parent().parent();  
-		var index=tr.find('.yard').attr('data-id');
+$('.yard').blur(function() {
+    var tr = $(this).parent().parent();
+    var index = tr.find('.yard').attr('data-id');
 
-		
-		var yard=$('#yard'+index).val(); 
-		
-		var dataString='yard='+yard+'&id='+index;
-		$.ajax({
-		type: "POST",
-		url: "ajax/update_yard.php",
-		data:dataString,
-		beforeSend: function(){
-			$("#contact_name").css("background","#F5C211");
-		},
-		success: function(data){
-			
-			$(this).css("background","#green");
-		}
-		});
-		
-	});
-	
-	$('.comments').blur(function(){
-		var tr=$(this).parent().parent();  
-		var index=tr.find('.comments').attr('data-id');
 
-		
-		var comments=$('#comments'+index).val(); 
-		
-		var dataString='comments='+comments+'&id='+index;
-		$.ajax({
-		type: "POST",
-		url: "ajax/update_comments.php",
-		data:dataString,
-		beforeSend: function(){
-			$("#contact_name").css("background","#F5C211");
-		},
-		success: function(data){
-			
-			$(this).css("background","#green");
-		}
-		});
-		
-	});
-	
+    var yard = $('#yard' + index).val();
+
+    var dataString = 'yard=' + yard + '&id=' + index;
+    $.ajax({
+        type: "POST",
+        url: "ajax/update_yard.php",
+        data: dataString,
+        beforeSend: function() {
+            $("#contact_name").css("background", "#F5C211");
+        },
+        success: function(data) {
+
+            $(this).css("background", "#green");
+        }
+    });
+
+});
+
+$('.comments').blur(function() {
+    var tr = $(this).parent().parent();
+    var index = tr.find('.comments').attr('data-id');
+
+
+    var comments = $('#comments' + index).val();
+
+    var dataString = 'comments=' + comments + '&id=' + index;
+    $.ajax({
+        type: "POST",
+        url: "ajax/update_comments.php",
+        data: dataString,
+        beforeSend: function() {
+            $("#contact_name").css("background", "#F5C211");
+        },
+        success: function(data) {
+
+            $(this).css("background", "#green");
+        }
+    });
+
+});
 </script>
-
