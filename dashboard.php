@@ -119,8 +119,7 @@ $col_sql_wait = mysqli_query($con, $col_sql_wait );
             </header>
             <div class="panel-body" style="text-align:center;">
                 <div class="col-sm-6">
-                    <!--<img src="images/header.JPG" class="img-responsive thumbnail"/> --->
-                    </center>
+                    <img src="images/header.JPG" class="img-responsive thumbnail" /> -
                 </div>
                 <div class="col-sm-3">
                     <div class="clearfix">&nbsp;</div>
