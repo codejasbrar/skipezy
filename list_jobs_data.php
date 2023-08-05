@@ -65,6 +65,7 @@ $today = date("d/m/y", strtotime($today));
                 <th>Customer</th>
                 <th>Delivery Address</th>
                 <th>Total</th>
+                <th>Total Paid</th>
                 <!-- <th>Driver</th>
                 <th>Tip Yard</th>--->
                 <th style="width:400px;">Comments</th>
@@ -84,6 +85,7 @@ $today = date("d/m/y", strtotime($today));
                 <th>Customer</th>
                 <th>Delivery Address</th>
                 <th>Total</th>
+                <th>Total Paid</th>
                 <!--- <th>Driver</th>
                 <th>Tip Yard</th>---->
                 <th style="width:400px;">Comments</th>
@@ -183,6 +185,10 @@ $today = date("d/m/y", strtotime($today));
                         id="total_amount<?php echo $job['id'];?>" class="form-control total_amount"
                         data-amount="<?php echo $job['total_amount']; ?>" value=<?php echo $job['total_amount']; ?>>
                 </td>
+                <td><input required name="amount_paid[]" type="text" data-id=<?php echo $job['id'];?>
+                        id="amount_paid<?php echo $job['id'];?>" class="form-control amount_paid"
+                        data-amount="<?php echo $job['amount_paid']; ?>" value=<?php echo $job['amount_paid']; ?>>
+                </td>
 
                 <!--<td><input  name="driver[]" type="text" data-id=<?php echo $job['id'];?> id="driver<?php echo $job['id'];?>" class="form-control driver_name" data-driver="<?php echo $job['driver']; ?>" value=<?php echo $job['driver']; ?>></td>
 
@@ -229,11 +235,13 @@ $today = date("d/m/y", strtotime($today));
 			$driver=$con->real_escape_string($_POST['driver_id'] ); 
 			$booking_id=$con->real_escape_string($_POST['selected_job'][$i]);
 			$amount=$con->real_escape_string($_POST['total_amount'][$i]);
+			$amount_paid=$con->real_escape_string($_POST['amount_paid'][$i]);
 			  
 					
 					$sql="UPDATE orders SET 
 					driver_id=$driver_id, 
-					amount='$amount'
+					amount='$amount',
+                    amount_paid='$amount_paid'
 					WHERE id=".$booking_id;
 					echo $sql;
 					if (!mysqli_query($con,$sql)) {
@@ -259,6 +267,7 @@ $today = date("d/m/y", strtotime($today));
 			$driver=$con->real_escape_string($_POST['status'] ); 
 			$booking_id=$con->real_escape_string($_POST['selected_job'][$i]);
 			$amount=$con->real_escape_string($_POST['total_amount'][$i]);
+			$amount_paid=$con->real_escape_string($_POST['amount_paid'][$i]);
 			  
 			
 				//if the job type is done only then update the stock otherwise let them to change the job details as wanted	
@@ -385,7 +394,8 @@ $today = date("d/m/y", strtotime($today));
 							
 					$sql="UPDATE orders SET 
 					status=$status, 
-					job_type = 2
+					job_type = 2,
+                    amount_paid='$amount_paid'
 					WHERE id=".$booking_id;
 					//echo $sql;
 					if (!mysqli_query($con,$sql)) {
@@ -440,6 +450,35 @@ $('.total_amount').blur(function() {
         }
     });
     alert(amount);
+});
+
+$('.amount_paid').blur(function() {
+    var tr = $(this).parent().parent();
+    var index = tr.find('.amount_paid').attr('data-id');
+
+    var amount_paid = $('#amount_paid' + index).val();
+    var total_amount = $('#total_amount' + index).val();
+
+    var dataString = 'amount_paid=' + amount_paid + '&id=' + index;
+    if (amount_paid <= total_amount) {
+        $.ajax({
+            type: "POST",
+            url: "ajax/update_paid_amount.php",
+            data: dataString,
+            beforeSend: function() {
+                $("#contact_name").css("background", "#F5C211");
+            },
+            success: function(data) {
+
+                $(this).css("background", "#green");
+            }
+        });
+    } else {
+        // $('#error').append('Paid amount can\'t be more than total amount!');
+        alert("Paid amount should be less than or equal to the total amount!");
+    }
+    // alert(amount_paid);
+    // alert(index);
 });
 
 

@@ -19,7 +19,7 @@ include "navbar.php";
 
 $customer_id=$con->real_escape_string($_POST['customer_id']);
 
-$customer_sql = "SELECT orders.id AS order_id, orders.start_date as start_date, orders.end_date , skips.size AS skip, customers.name AS customer_name, customers.mobile, customers.address1,customers.city, customers.post_code, orders.amount AS total_amount, job_types.name AS job_type, payment_type.name AS payment_type, order_status.name AS order_status
+$customer_sql = "SELECT orders.id AS order_id, orders.start_date as start_date, orders.end_date , skips.size AS skip, customers.name AS customer_name, customers.mobile, customers.address1,customers.city, customers.post_code, orders.amount AS total_amount,orders.amount_paid AS amount_paid, job_types.name AS job_type, payment_type.name AS payment_type, order_status.name AS order_status
 from orders
 LEFT JOIN customers ON orders.customer_id = customers.id
 LEFT JOIN job_types ON orders.job_type = job_types.id
@@ -46,7 +46,7 @@ $customer = mysqli_fetch_assoc($result1)
 
     <div class="col-md-12" style="margin-top:50px;">
 
-        <table id="customers" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+        <table id="customers" class="table table-bordered" cellspacing="0" width="100%">
 
             <thead>
 
@@ -59,12 +59,13 @@ $customer = mysqli_fetch_assoc($result1)
                     <th>Skip Size</th>
 
                     <th>Total</th>
+                    <th>Total Paid</th>
                     <th>Payment</th>
                     <th>Status</th>
 
                 </tr>
                 <tr>
-                    <td colspan="8">
+                    <td colspan="9">
                         <h4>
                             <center>Statement of <?php echo $customer['customer_name'] ;?> </center>
                         </h4>
@@ -82,6 +83,7 @@ $customer = mysqli_fetch_assoc($result1)
                     <th>Skip Size</th>
 
                     <th>Total</th>
+                    <th>Total Paid</th>
                     <th>Payment</th>
                     <th>Status</th>
 
@@ -108,20 +110,24 @@ while ($job = mysqli_fetch_assoc($result)) {
    $no_of_days = $today->diff($start_date)->format("%a");
    if ($no_of_days > 30) {
       ?>
-                <td bgcolor="#F30105"><?php echo $no_of_days; ?></td>
+                <td><?php echo $no_of_days; ?></td>
                 <?php } else { ?>
                 <td><?php echo $no_of_days; ?></td>
                 <?php } ?>
 
                 <td><?php echo $job['skip']; ?></td>
 
-                <td bgcolor="#08E006"><?php echo "" . $job['total_amount']; ?></td>
+                <td><?php echo "" . $job['total_amount']; ?></td>
+                <td><?php echo "" . $job['amount_paid']; ?></td>
 
-                <?php if ($job['payment_type'] == 'Not Paid') { ?>
-                <td bgcolor="#F30105" style="color:#F7F4F4;"><?php echo $job['payment_type']; ?></td>
-                <?php } elseif ($job['payment_type'] == 'Fully Paid') { ?>
-                <td bgcolor="#0C9402" style="color:#F7F4F4;"><?php echo $job['payment_type']; ?></td>
-                <?php } else { ?><td><?php echo $job['payment_type']; ?></td><?php } ?>
+                <?php if ($job['total_amount'] == $job['amount_paid']) { ?>
+                <td bgcolor="green" style="color: #f7f7f7; font-weight: 600">Fully Paid</td>
+                <?php } elseif ($job['amount_paid'] == 0) { ?>
+                <td bgcolor="red" style="color: #f7f7f7; font-weight: 600">Not Paid</td>
+                <?php } else { ?>
+                <td bgcolor="orange" style="color: #f7f7f7; font-weight: 600">Part Paid</td>
+                <?php } ?>
+
                 <td><?php echo $job['order_status']; ?></td>
 
 

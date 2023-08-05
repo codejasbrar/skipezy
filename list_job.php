@@ -166,7 +166,7 @@ $_COOKIE["to"]='2017-08-14';*/
 	}
 	
 $sql="SELECT order_status.name as status, orders.start_date,orders.id AS id, orders.end_date,orders.skips,orders.exchange_skip_id as exchanged_skip, orders.comments,orders.delivery_slot,orders.yard,
-skips.size AS skip,  skips.id AS skipid, customers.id AS customer_id, customers.name AS customer_name, customers.mobile, orders.amount AS total_amount, job_types.name AS job_type, payment_type.name AS payment_type,  delivery_address.address1,delivery_address.city,delivery_address.post_code, employees.name AS driver,tip_status.name AS tip_status, orders.driver_id as driver, orders.collected_date, orders.collected_by, yards.name as yardname FROM orders
+skips.size AS skip,  skips.id AS skipid, customers.id AS customer_id, customers.name AS customer_name, customers.mobile, orders.amount AS total_amount,orders.amount_paid AS amount_paid, job_types.name AS job_type, payment_type.name AS payment_type,  delivery_address.address1,delivery_address.city,delivery_address.post_code, employees.name AS driver,tip_status.name AS tip_status, orders.driver_id as driver, orders.collected_date, orders.collected_by, yards.name as yardname FROM orders
 
 LEFT JOIN customers ON orders.customer_id = customers.id 
 LEFT JOIN job_types ON orders.job_type = job_types.id 
@@ -201,7 +201,7 @@ $res=mysqli_query($con,$sql);
     
     $today= date('Y-m-d');
 $sql="SELECT orders.start_date,orders.id AS id, orders.end_date,orders.skips,orders.exchange_skip_id as exchanged_skip, orders.comments,orders.delivery_slot, order_status.name as status,orders.yard as yard,
-skips.size AS skip, customers.id AS customer_id, customers.name AS customer_name, customers.mobile, orders.amount AS total_amount, job_types.name AS job_type, payment_type.name AS payment_type,  delivery_address.address1,delivery_address.address2,delivery_address.city,delivery_address.post_code, orders.driver_id AS driver
+skips.size AS skip, customers.id AS customer_id, customers.name AS customer_name, customers.mobile, orders.amount AS total_amount,orders.amount_paid AS amount_paid, job_types.name AS job_type, payment_type.name AS payment_type,  delivery_address.address1,delivery_address.address2,delivery_address.city,delivery_address.post_code, orders.driver_id AS driver
 FROM orders
 LEFT JOIN customers ON orders.customer_id = customers.id
 LEFT JOIN job_types ON orders.job_type = job_types.id
