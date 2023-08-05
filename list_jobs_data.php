@@ -22,9 +22,8 @@ $today = date("d/m/y", strtotime($today));
 <form method="post" action="">
     <input type="hidden" name="status" value="2">
     <div class="form-group col-md-1 pull-right">
-        <input style="margin-top:30px;" type="submit" name="confirm_booking" class="btn btn-sm btn-success"
-            value="Update" />
-
+        <input style="margin-top:30px;" type="submit" data-target="confirmModal" name="confirm_booking"
+            class="btn btn-sm btn-success" value="Update" />
     </div>
     <!--- <div class="form-group col-md-2 pull-right">
         <label>Job Status</label>
@@ -35,7 +34,6 @@ $today = date("d/m/y", strtotime($today));
     <option style="padding:20px; background-color:#18E501; color:#F9F0F1; cursor:pointer;" value="2">Job Done
 	  
     </option>
-						
 			       	   </select>
 			       	   </div>--->
     <style>
@@ -57,153 +55,63 @@ $today = date("d/m/y", strtotime($today));
 
     <table style="font-family:Montserrat; font-size:13px;" id="jobs"
         class="table table list_jobs table-hover table-bordered table-striped table-info" cellspacing="0" border="1">
-
-
-
         <thead>
-
-
-
             <tr class="btn-primary" style="padding:10px;">
-
-
-
                 <th>Job ID</th>
-
                 <th>Start Date</th>
-
-
-
                 <th>Total Days</th>
-
                 <th>Skips Out</th>
-
                 <th>Job Type</th>
-
                 <th>Customer</th>
-
                 <th>Delivery Address</th>
-
-
-
                 <th>Total</th>
-
-
-
                 <!-- <th>Driver</th>
-
-                           <th>Tip Yard</th>--->
+                <th>Tip Yard</th>--->
                 <th style="width:400px;">Comments</th>
-
                 <th>Status</th>
                 <th>Edit Job</th>
                 <th bgcolor="#F70B0F">Delete</th>
-
                 <th style="padding: 12px 30px;"><input class="checkbox" type="checkbox" id="select_all" /></th>
-
             </tr>
-
-
-
         </thead>
-
-
-
         <tfoot>
-
-
-
             <tr class="btn-primary">
-
                 <th>Job ID</th>
-
                 <th>Start Date</th>
-
-
-
                 <th>Total Days</th>
-
                 <th>Skips Out</th>
-
                 <th>Job Type</th>
-
                 <th>Customer</th>
-
                 <th>Delivery Address</th>
-
-
-
                 <th>Total</th>
                 <!--- <th>Driver</th>
-
-                           <th>Tip Yard</th>---->
+                <th>Tip Yard</th>---->
                 <th style="width:400px;">Comments</th>
-
                 <th>Status</th>
                 <th>Edit Job</th>
                 <th bgcolor="#F70B0F">Delete</th>
                 <th style="padding: 12px 30px;"></th>
-
             </tr>
-
-
-
         </tfoot>
-
-
-
         <tbody>
-
-
-
-
-
             <?php
-
-
-
                 while($job=mysqli_fetch_assoc($res))
-
-
-
                   {
-
-					  //echo $job['payment_type'];
-
-					  //exit;
-
-					  if($job['status']=='Done'){?>
-
-
-
+                    //echo $job['payment_type'];
+                    //exit;
+                    if($job['status']=='Done'){?>
             <tr class="job_type <?php echo $job['job_type'] ;?>"
                 style="cursor:pointer; color:#2A8AC0; font-weight:bold;">
-
                 <?php 
-
-					  }else{?>
-
+				}else{?>
             <tr class="job_type <?php echo $job['job_type'] ;?>"
                 style="cursor:pointer; color:#F80409; font-weight:bold;">
-
                 <?php }?>
-
                 <td><?php
-
-						    echo $job['id']; ?></td>
-
-
-
+				echo $job['id']; ?></td>
                 <td>
-
                     <?php $start = date("d/m/y", strtotime($job['start_date'])); 
-
-						   
-
-						   echo $start  ;?></td>
-
-
-
+						echo $start;?></td>
                 <?php
 
 			   $from = new DateTime($job['start_date']); 
@@ -224,48 +132,19 @@ $today = date("d/m/y", strtotime($today));
 
 			  if($no_of_days>3)
 
-
-
 {
-
 	//echo "This job is not done";
-
-	
-
 	}
-
-			  
-
 			  ?>
-
-
-
                 <td>
-
-
-
                     <?php
-
-						   $qty=$job['skips'];
-
-						   if($qty>'1'){
-
-							   
-
-						    echo $job['skip'];
-
-						   }else{
-
-                             
-
-						    echo $job['skip'];
-
-						   }
-
-							?>
-
-
-
+                        $qty=$job['skips'];
+                        if($qty>'1'){
+                        echo $job['skip'];
+                        }else{
+                        echo $job['skip'];
+                        }
+					?>
                 </td>
 
                 <?php if($job['job_type']=="Exchange")
@@ -288,26 +167,17 @@ $today = date("d/m/y", strtotime($today));
 
                 <?php }else{?>
 
-
-
-
-
                 <td><?php echo $job['job_type']." / ".$job['delivery_slot'];?></td>
 
                 <?php }?>
 
                 <!-- customer Name-->
 
-
-
                 <td col-id="6" class="customers" data-id="<?php echo $job['customer_id'];?>">
                     <?php echo $job['customer_name'];?></td>
 
-
-
                 <td><?php echo $job['address1'].", ".$job['city'].", <span class='badge' style='padding:10px;'>".$job['post_code']."</span>";?>
                 </td>
-
 
                 <td><input required name="total_amount[]" type="text" data-id=<?php echo $job['id'];?>
                         id="total_amount<?php echo $job['id'];?>" class="form-control total_amount"
@@ -322,7 +192,6 @@ $today = date("d/m/y", strtotime($today));
                         id="comments<?php echo $job['id'];?>" class="form-control comments"
                         data-comments="<?php echo $job['comments']; ?>" value="<?php echo $job['comments']; ?>"></td>
 
-
                 <td col-id="13" data-id="<?php echo $job['id'];?>"><?php echo $job['status'];?></td>
                 <input id="status" type="hidden" value="<?php echo $job['status'];?>" />
                 <td><a href="edit_order.php?job_id=<?php echo $job['id'];?>"><i
@@ -332,8 +201,6 @@ $today = date("d/m/y", strtotime($today));
                 <input type="hidden" name="booking_id[]" value=<?php echo $job['id'];?>>
                 <td style="text-align:right; font-size:20px;padding: 12px 30px;"><input name="selected_job[]"
                         type="checkbox" class="checkbox selected_job" value=<?php echo $job['id'];?>></td>
-
-
 
             </tr>
 
@@ -526,13 +393,9 @@ $today = date("d/m/y", strtotime($today));
 			  			die('INSERT 3 INTO ORDER_Details -Error: ' . mysqli_error($con));
 		  				}
 				echo '<script type="text/javascript"> window.location.href="list_job.php";</script>';
-			
-			 
-				
-				
+
 				}
 			}
-
 			
 	?>
 
@@ -561,7 +424,6 @@ $('.total_amount').blur(function() {
     var tr = $(this).parent().parent();
     var index = tr.find('.total_amount').attr('data-id');
 
-
     var total_amount = $('#total_amount' + index).val();
 
     var dataString = 'amount=' + total_amount + '&id=' + index;
@@ -585,7 +447,6 @@ $('.driver_name').blur(function() {
     var tr = $(this).parent().parent();
     var index = tr.find('.driver_name').attr('data-id');
 
-
     var driver = $('#driver' + index).val();
 
     var dataString = 'driver=' + driver + '&id=' + index;
@@ -608,7 +469,6 @@ $('.yard').blur(function() {
     var tr = $(this).parent().parent();
     var index = tr.find('.yard').attr('data-id');
 
-
     var yard = $('#yard' + index).val();
 
     var dataString = 'yard=' + yard + '&id=' + index;
@@ -630,7 +490,6 @@ $('.yard').blur(function() {
 $('.comments').blur(function() {
     var tr = $(this).parent().parent();
     var index = tr.find('.comments').attr('data-id');
-
 
     var comments = $('#comments' + index).val();
 

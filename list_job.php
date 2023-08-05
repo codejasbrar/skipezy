@@ -93,13 +93,13 @@ $_COOKIE["to"]='2017-08-14';*/
 	  $condition .= "AND drivers.name LIKE '$name%'";
 	}
 	
-	/*
-	if (!empty($_POST['paid']))
-	{
-	  $paid=$con->real_escape_string($_POST['paid']);
-	  $condition .= "AND payment_status.name LIKE '$name%'";
-	}
-	*/
+	// /*
+	// if (!empty($_POST['paid']))
+	// {
+	//   $paid=$con->real_escape_string($_POST['paid']);
+	//   $condition .= "AND payment_status.name LIKE '$name%'";
+	// }
+	// */
 	
 	if (!empty($_POST['job_id']))
 	{
